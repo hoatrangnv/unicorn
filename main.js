@@ -94,7 +94,7 @@ cc.game.onStart = function(){
     // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
     // The game will be resized when browser size change
     cc.view.resizeWithBrowserSize(true);
-    time1 = new Date().getTime();
+    // time1 = new Date().getTime();
 
     //require('src/Engine/Utility/ConnectVinplay.js');
 

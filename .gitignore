@@ -15,3 +15,4 @@ UpdateResource.exe
 /node_modules
 /.vs
 /dist
+/bower_components

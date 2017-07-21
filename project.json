@@ -13,29 +13,62 @@
     "extensions"
   ],
   "jsList": [
-    "src/resource.js",
-    "src/WebResource.js",
-    "src/Engine/GUI/BaseLayer.js",
-    "src/Engine/GUI/GuiUtil.js",
-    "src/Engine/GUI/BaseLobby.js",
-    "src/Engine/GUI/BaseScene.js",
-    "src/Engine/GUI/SceneMgr.js",
-    "src/Engine/GUI/BaseLayerTable.js",
-    "src/Engine/Utility/Dialog.js",
-    "src/Engine/Purchase/InappPurchase.js",
-    "src/Engine/Utility/LocalizedString.js",
 
-    "src/Engine/Utility/StringUtility.js",
-    "src/Engine/Utility/Toast.js",
-    "src/Engine/Utility/Utils.js",
+    //libs
+    "src/libs/eventEmitter.js",
+    "src/libs/base64.js",
+    "src/libs/md5.js",
 
-    "src/Engine/Social/SocialManager.js",
-    "src/Engine/Network/InPacket.js",
-    "src/Engine/Network/OutPacket.js",
-    "src/Engine/Network/WsClient.js",
-    "src/Engine/Utility/EventHandlerManager.js",
+//    Unicorn
+    "src/Unicorn/index.js",
+
+//    Util
+    "src/Unicorn/Utilites/GuiUtilities.js",
+    "src/Unicorn/Utilites/LocalizedString.js",
+    "src/Unicorn/Utilites/StringUtilites.js",
+    "src/Unicorn/Utilites/Toast.js",
+    "src/Unicorn/Utilites/Utils.js",
+
+//    Network
+    "src/Unicorn/Network/core/InPacket.js",
+    "src/Unicorn/Network/core/OutPacket.js",
+    "src/Unicorn/Network/core/WsClient.js",
+    "src/Unicorn/Network/core/EventHandlerManager.js",
+
+    "src/Unicorn/Network/SocialManager.js",
+
+//    Unicorn Components
+    "src/Unicorn/Components/BaseLayer.js",
+    "src/Unicorn/Components/BaseLobby.js",
+    "src/Unicorn/Components/BaseScene.js",
+    "src/Unicorn/Components/SceneMgr.js",
+    "src/Unicorn/Components/BaseLayerTable.js",
+    "src/Unicorn/Components/Dialog.js",
+    "src/Unicorn/Components/InappPurchase.js",
+
+
+//    "src/resource.js",
+//    "src/WebResource.js",
+//    "src/Engine/GUI/BaseLayer.js",
+//    "src/Engine/GUI/GuiUtil.js",
+//    "src/Engine/GUI/BaseLobby.js",
+//    "src/Engine/GUI/BaseScene.js",
+//    "src/Engine/GUI/SceneMgr.js",
+//    "src/Engine/GUI/BaseLayerTable.js",
+//    "src/Engine/Utility/Dialog.js",
+//    "src/Engine/Purchase/InappPurchase.js",
+//    "src/Engine/Utility/LocalizedString.js",
+
+//    "src/Engine/Utility/StringUtility.js",
+//    "src/Engine/Utility/Toast.js",
+//    "src/Engine/Utility/Utils.js",
+
+//    "src/Engine/Social/SocialManager.js",
+//    "src/Engine/Network/InPacket.js",
+//    "src/Engine/Network/OutPacket.js",
+//    "src/Engine/Network/WsClient.js",
     "src/Game/common/common.js",
-    "src/Game/common/md5.js",
+//    "src/Game/common/md5.js",
     "src/Game/Slots/UI/BaseLayerSlots.js",
     "src/Engine/Utility/ConnectVinplay.js",
     "src/Game/Minigame/Taixiu/TXcolor.js",
