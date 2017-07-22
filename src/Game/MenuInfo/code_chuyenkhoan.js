@@ -2,7 +2,7 @@ var chuyenkhoan = null;
 var chuyenkhoanX = null; var chuyenkhoanY = null;
 var chuyenkhoanAppear = null;
 
-var code_chuyenkhoan = BaseLayer.extend(
+var code_chuyenkhoan = uc.BaseLayer.extend(
     {
         ctor: function () {
             //// chuyenkhoan

@@ -1,5 +1,5 @@
 //
-Poker.PokerScene = BaseLayer.extend({
+Poker.PokerScene = uc.BaseLayer.extend({
     ctor: function () {
         cc.log("Poker + PokerScene ctor 0");
         this._super();
@@ -473,7 +473,7 @@ Poker.PokerScene = BaseLayer.extend({
     onEnter: function () {
         if (menutab)
             menutab.hideAllInfo();
-        BaseLayer.prototype.onEnter.call(this);
+        uc.BaseLayer.prototype.onEnter.call(this);
         cc.log("PokerScene onEnter 5");
     },
 
@@ -545,7 +545,7 @@ Poker.PokerScene = BaseLayer.extend({
     },
 
     onExit: function () {
-        BaseLayer.prototype.onExit.call(this);
+        uc.BaseLayer.prototype.onExit.call(this);
         if (this.chatLayer) {
             this.chatLayer.removeFromParent();
             this.chatLayer = null;

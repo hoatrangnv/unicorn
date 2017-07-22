@@ -1,7 +1,7 @@
 (function () {
     var root = this;
 
-    var Dialog = cc.Dialog = cc.BaseLayer.extend({
+    var Dialog = uc.Dialog = uc.BaseLayer.extend({
 
         ctor: function(){
 

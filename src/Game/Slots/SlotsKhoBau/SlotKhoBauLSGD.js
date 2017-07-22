@@ -3,7 +3,7 @@ var khoBauLSGDX = 0;
 var khoBauLSGDY = 0;
 var khoBauLSGDAppear = false;
 
-var KhoBauLSGDLayer = BaseLayer.extend(
+var KhoBauLSGDLayer = uc.BaseLayer.extend(
     {
         ctor: function () {
             this.moneyTypeLSGD = MONEY_VIN;

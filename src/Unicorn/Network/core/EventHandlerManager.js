@@ -1,7 +1,7 @@
 (function () {
     var root = this;
 
-    var TimeOutHandler = cc.Class.extend({
+    var TimeOutHandler = uc.TimeOutHandler = cc.Class.extend({
         ctor: function(name, func){
             this.name = name;
             this.func = func;

@@ -274,9 +274,9 @@ var BaseLayer = cc.Layer.extend({
 
     setDelayInit: function (time) {
         if (time === undefined)
-            time = BaseLayer.TIME_APPEAR_GUI;
-        if (time < BaseLayer.TIME_APPEAR_GUI)
-            time = BaseLayer.TIME_APPEAR_GUI;
+            time = uc.BaseLayer.TIME_APPEAR_GUI;
+        if (time < uc.BaseLayer.TIME_APPEAR_GUI)
+            time = uc.BaseLayer.TIME_APPEAR_GUI;
 
         this.runAction(cc.sequence(cc.delayTime(time), cc.callFunc(this.functionDelayInit, this)));
     },
@@ -774,6 +774,6 @@ var BaseLayer = cc.Layer.extend({
 
     //////////////////////////////////////////////////////
 });
-BaseLayer.TIME_APPEAR_GUI = 0.35;
+uc.BaseLayer.TIME_APPEAR_GUI = 0.35;
 
 

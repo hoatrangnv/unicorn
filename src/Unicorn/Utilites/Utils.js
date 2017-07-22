@@ -1,21 +1,19 @@
 (function () {
+
     var root = this;
 
     var engine = uc.Utils = {};
 
-    engine.addMD5 = function (url,real) {
-        var obj = url.substr(4,url.length-4);
-        if(g_hash_resources[obj])
-        {
+    engine.addMD5 = function (url, real) {
+        var obj = url.substr(4, url.length - 4);
+        if (g_hash_resources[obj]) {
             real += "?h=" + g_hash_resources[obj];
             real += "&v=" + version_res;
         }
         return real;
     };
 
-    if(!cc.sys.isNative) {
-        var ccui = ccui || {};
-        var cc = cc || {};
+    if (!cc.sys.isNative) {
         cc.RED = {r: 255, g: 0, b: 0};
         cc.GREEN = {r: 0, g: 255, b: 0};
         cc.BLUE = {r: 0, g: 0, b: 255};
@@ -194,20 +192,16 @@
 
             update: function (time) {
                 cc.ProgressFromTo.prototype.update.call(time);
-                if (this._timer)
-                {
+                if (this._timer) {
                     var checkTime = (1 - this.startPercent) + time * this.startPercent;
-                    if (checkTime <= .5)
-                    {
-                        this._timer._sprite.setColor({r:Math.floor(checkTime * 510),g:255,b:0});
+                    if (checkTime <= .5) {
+                        this._timer._sprite.setColor({r: Math.floor(checkTime * 510), g: 255, b: 0});
                     }
-                    else
-                    {
-                        this._timer._sprite.setColor({r:255,g:Math.floor(255 - (checkTime - .5) * 510),b:0});
+                    else {
+                        this._timer._sprite.setColor({r: 255, g: Math.floor(255 - (checkTime - .5) * 510), b: 0});
                     }
 
-                    if (this._nen)
-                    {
+                    if (this._nen) {
                         this._nen.setOpacity(Math.floor((1 - time) * 255));
                         this._nen.setColor(this._timer.getColor());
                     }
@@ -255,7 +249,7 @@
                 this._super();
             },
             update: function (time) {
-                var winSize = {width:1280,height:720}
+                var winSize = {width: 1280, height: 720}
                 var MATH_PIOVER2 = Math.PI / 2;
                 var alpha = MATH_PIOVER2 + time * 2 * MATH_PIOVER2;
                 if (time < 0.35) {
@@ -269,12 +263,10 @@
                 } else {
                     this.target.setPositionX(winSize.width / 2 + this.radius + Math.cos(alpha) * this.radius);
                 }
-                if(time <= 0.001 || time >= .999)
-                {
+                if (time <= 0.001 || time >= .999) {
                     this.target.setVisible(false)
                 }
-                else
-                {
+                else {
                     this.target.setVisible(true)
                 }
 
@@ -291,7 +283,7 @@
             }
         })
 
-        engine.CircleMove.create = function (duration, radius ) {
+        engine.CircleMove.create = function (duration, radius) {
             var pRet = new engine.CircleMove();
             pRet.initWithDuration(duration, radius);
 
@@ -448,6 +440,7 @@
         }
 
     }
-
 }.call(this));
+
+
 

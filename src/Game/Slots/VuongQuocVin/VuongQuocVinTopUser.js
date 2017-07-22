@@ -3,7 +3,7 @@ var vuongQuocVinTopUserX = 0;
 var vuongQuocVinTopUserY = 0;
 var vuongQuocVinTopUserAppear = false;
 
-var VuongQuocVinTopUserLayer = BaseLayerSlots.extend(
+var VuongQuocVinTopUserLayer = uc.BaseLayerSlots.extend(
     {
         ctor: function () {
             this.moneyTypeLSGD = MONEY_VIN;

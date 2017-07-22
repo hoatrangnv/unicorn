@@ -12,7 +12,7 @@ Slots.Content = {
     betValue:100
 }
 
-var SlotKhoBauLayer = BaseLayer.extend(
+var SlotKhoBauLayer = uc.BaseLayer.extend(
     {
         ctor: function () {
             this._super("slotKhoBau");

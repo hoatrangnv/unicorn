@@ -8,4 +8,4 @@
     var sortName = "uc";
 
     this.uc = this.Unicorn = unicorn;
-}.call(this))
+}.call(this));

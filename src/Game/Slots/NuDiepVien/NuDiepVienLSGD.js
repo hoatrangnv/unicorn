@@ -3,7 +3,7 @@ var nuDiepVienLSGDX = 0;
 var nuDiepVienLSGDY = 0;
 var nuDiepVienLSGDAppear = false;
 
-var NuDiepVienLSGDLayer = BaseLayer.extend(
+var NuDiepVienLSGDLayer = uc.BaseLayer.extend(
     {
         ctor: function () {
             this.moneyTypeLSGD = MONEY_VIN;

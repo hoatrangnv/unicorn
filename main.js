@@ -104,6 +104,9 @@ cc.game.onStart = function(){
         //testLobby = new GameLobby();
         //cc.director.runScene(makeScene(testLobby));
 
+        console.log("preload okie");
+        return;
+
         BaseScene.BG_GUI = new cc.Layer();
         BaseScene.GAME_GUI = new cc.Layer();
         BaseScene.MINI_GAME_GUI = new cc.Layer();

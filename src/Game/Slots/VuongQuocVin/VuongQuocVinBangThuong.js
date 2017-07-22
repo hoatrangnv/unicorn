@@ -1,7 +1,7 @@
 var vuongQuocVinBangThuong = null;
 var vuongQuocVinBangThuongAppear = false;
 
-var VuongQuocVinBangThuongLayer = BaseLayer.extend(
+var VuongQuocVinBangThuongLayer = uc.BaseLayer.extend(
     {
         ctor: function () {
             this._super("vuongQuocVinBangThuong");
