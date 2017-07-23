@@ -4,9 +4,9 @@
 
     var engine = uc.Utils = {};
 
-    engine.addMD5 = function (url, real) {
+    root.addMD5 = function (url, real) {
         var obj = url.substr(4, url.length - 4);
-        if (g_hash_resources[obj]) {
+        if (g_hash_resources && g_hash_resources[obj]) {
             real += "?h=" + g_hash_resources[obj];
             real += "&v=" + version_res;
         }
