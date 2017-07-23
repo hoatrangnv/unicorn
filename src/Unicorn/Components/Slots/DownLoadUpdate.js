@@ -3,6 +3,7 @@
  */
 (function () {
     var root = this;
+    var BaseLayerSlots = uc.BaseLayerSlots;
     var DownLoadUpdate = uc.DownLoadUpdate = BaseLayerSlots.extend({
         _am : null,
         _progress : null,

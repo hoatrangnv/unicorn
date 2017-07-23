@@ -4,6 +4,8 @@
 (function () {
     var root = this;
 
+    var BaseLayer = uc.BaseLayer;
+
     var BaseLayerSlots = uc.BaseLayerSlots  = cc.Layer.extend({
 
         ctor: function(id){
