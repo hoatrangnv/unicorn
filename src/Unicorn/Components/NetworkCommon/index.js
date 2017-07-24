@@ -2,7 +2,6 @@
 (function () {
   var root = this;
 
-
   var CLIENT_STATE = uc.CLIENT_STATE = {
     NOT_CONNECTED : 0,
     CONNECTING: 1,

@@ -489,35 +489,6 @@
     }
 
 
-    var fontArial = {fontName: "arial", src: [{src: "res/Font/arial.ttf", type: "truetype"}]};
-    var fontArialB = {fontName: "arialbd", src: [{src: "res/Font/arialbd.ttf", type: "truetype"}]};
-    var fontRobotoMedium = {fontName: "Roboto-Medium", src: [{src: "res/Font/Roboto-Medium.ttf", type: "truetype"}]};
-    var RobotoRegular = {fontName: "Roboto-Regular", src: [{src: "res/Font/Roboto-Regular.ttf", type: "truetype"}]};
-    var fontRobotoBlack = {fontName: "Roboto-Black", src: [{src: "res/Font/Roboto-Black.ttf", type: "truetype"}]};
-    var fontRobotoBold = {fontName: "Roboto-Bold", src: [{src: "res/Font/Roboto-Bold.ttf", type: "truetype"}]};
-    var UTMBebas = {fontName: "UTM Bebas", src: [{src: "res/Font/UTM Bebas.ttf", type: "truetype"}]};
-
-    var UTMMobifoneKT = {fontName: "UTM-Mobifone-KT", src: [{src: "res/Font/UTM-Mobifone-KT.ttf", type: "truetype"}]};
-    var UTMBitsumishi = {
-        fontName: "UTM-Bitsumishi-Pro",
-        src: [{src: "res/Font/UTM-Bitsumishi-Pro.ttf", type: "truetype"}]
-    };
-    var SeagullBold = {fontName: "UTM-SeagullBold", src: [{src: "res/Font/UTM-SeagullBold.ttf", type: "truetype"}]};
-
-    var fontArialSrc = "res/Font/arial.ttf";
-    var fontArialBSrc = "res/Font/arialbd.ttf";
-    var fontRobotoMediumSrc = "res/Font/Roboto-Medium.ttf";
-    var RobotoRegularSrc = "res/Font/Roboto-Regular.ttf";
-    var fontRobotoBlackSrc = "res/Font/Roboto-Black.ttf";
-    var fontRobotoBoldSrc = "res/Font/Roboto-Bold.ttf";
-    var UTMMobifoneKTSrc = "res/Font/UTM-Mobifone-KT.ttf";
-    var UTMBitsumishiSrc = "res/Font/UTM-Bitsumishi-Pro.ttf";
-    var SeagullBoldSrc = "res/Font/UTM-SeagullBold.ttf";
-
-    var BMFont2Bold = "res/Font/Font02/Font_02_bold.fnt";
-    var BMFont2Regular = "res/Font/Font02/Font_02_regular.fnt";
-
-
     var notification_web = function () {
         if (!Notification) {
             alert('Desktop notifications not available in your browser. Try Chromium.');

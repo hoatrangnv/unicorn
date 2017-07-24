@@ -51,6 +51,8 @@
     "src/Unicorn/Network/CmdReceivedCommon.js",
     "src/Unicorn/Network/BaseWSListener.js",
     "src/Unicorn/Network/WebsocketClient.js",
+    "src/Unicorn/Network/XMLHttpRequest.js",
+
 
 
     "src/Unicorn/Components/BaseLayer.js",
@@ -61,10 +63,11 @@
     "src/Unicorn/Components/Dialog.js",
     "src/Unicorn/Components/InappPurchase.js",
     "src/Unicorn/Components/MiniGameBaseLayer.js",
+    "src/Unicorn/Components/Popup/codeLoading.js",
 
 
     "src/Unicorn/Configs/commonConfigs.js",
-
+    "src/Unicorn/Configs/fonts.js",
 
     "src/Unicorn/GameManager/GameManager.js",
     "src/Unicorn/GameManager/RoomItem.js",

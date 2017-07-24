@@ -100,7 +100,7 @@
                 //GameScene.setScale(globalScaleFactor);
                 //var origame
             }
-            var baseLobby = new BaseLobby();
+            var baseLobby = new uc.BaseLobby();
             MainContent = baseLobby.main_content;
             GameScene.addChild(baseLobby);
 

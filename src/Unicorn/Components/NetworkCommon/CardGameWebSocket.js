@@ -10,8 +10,6 @@
   };
 
   var CARD_GAME = {};
-
-  console.log("uc.Network", uc);
   var CardGameWebSocket = uc.CardGameWebSocket = uc.Network.WebsocketClient.extend({
     ctor: function(){
       this._super();

@@ -495,7 +495,7 @@
             this[name].setTag(tag);
             this[name].addTouchEventListener(this.onTouchEventHandler, this);
             this[name].setPosition(position);
-            this[name].setTitleFontName(SeagullBold.fontName);
+            this[name].setTitleFontName(uc.fonts.SeagullBold.fontName);
             this[name].setTitleFontSize(30);
             this[name].setTitleColor(cc.color.WHITE);
             parent.addChild(this[name]);
