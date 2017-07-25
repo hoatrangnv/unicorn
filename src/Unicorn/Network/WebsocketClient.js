@@ -1,7 +1,7 @@
 (function () {
     var root = this;
 // Ws client
-
+    var useTCP = false;
 
     var WebSocket = WebSocket || window.WebSocket || window.MozWebSocket;
 

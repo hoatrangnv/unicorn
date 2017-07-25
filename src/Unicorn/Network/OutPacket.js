@@ -1,5 +1,6 @@
 (function () {
     var root = this;
+    var INDEX_SIZE_PACKET = 1;
 
     var OutPacket = uc.Network.OutPacket = cc.Class.extend(
         {
@@ -29,7 +30,7 @@
                 }
                 this._isPackedHeader = true;
 
-                var header = PacketHeaderAnalyze.genHeader(false, false);
+                var header = uc.Network.PacketHeaderAnalyze.genHeader(false, false);
                 this.putByte(header);
                 this.putUnsignedShort(this._length);
                 this.putByte(this._controllerId);

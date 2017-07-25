@@ -278,10 +278,58 @@
         } else {
           this.initAuth();
           // var url = urlGetConfig();
-          sendRequest(url, null, false, lobby.callBackGetConfig, lobby.callBackError);
+          // sendRequest(url, null, false, lobby.callBackGetConfig, lobby.callBackError);
           // visible captcha
           //lobby.sp_ma_xac_nhan.setVisible(false);
           //lobby.sp_show_captcha_for.setVisible(false);
+
+            var newWebsocket = new uc.Network.WebsocketClient();
+            var CmdSendTest = uc.Network.CmdSendCommon.extend(
+                {
+                    ctor:function()
+                    {
+                        this._super();
+                        this.initData(100);
+                        this.setControllerId(1);
+                        this.setCmdId(1);
+                    },
+                    putData:function(username, password){
+                        //pack
+                        this.packHeader();
+                        this.putString(username);
+                        this.putString(password);
+                        this.updateSize();
+                    }
+                }
+            );
+
+            var CmdReceivedTest = uc.Network.CmdReceivedCommon.extend(
+                {
+                    ctor: function(pkg) {
+                        this._super(pkg);
+                        this.readData();
+                    },
+                    readData: function(){
+                        this.result = this.getError();
+                        this.currentMoney = this.getLong();
+                        //this.getError();
+                    }
+
+                }
+            );
+
+            newWebsocket.onSocketConnect = function () {
+                var loginData = new CmdSendTest();
+                loginData.putData("username", "password");
+                console.log("loginData", loginData);
+                newWebsocket.send(loginData);
+            };
+            newWebsocket.onSocketData = function (a) {
+                console.log(a.data);
+                var data = new Uint8Array(a.data);
+                console.log("Uint8Array data", data);
+            }
+            newWebsocket.connect("210.211.101.230", 244, false);
         }
 
         this.addJackpotGame();
