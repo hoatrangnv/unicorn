@@ -225,7 +225,7 @@
         // this.initPTaoNhanVat();
         // this.initPLoginOTP();
         // this.initPForgetPass();
-        this.initPBaoTri();
+        // this.initPBaoTri();
         // this.initPSubpot();
         this.initGameInfo();
 
@@ -320,7 +320,7 @@
 
             newWebsocket.onSocketConnect = function () {
                 var loginData = new CmdSendTest();
-                loginData.putData("username", "password");
+                loginData.putData("caro12", "9a3d271a9906af2077264b5e3d27425c");
                 console.log("loginData", loginData);
                 newWebsocket.send(loginData);
             };
@@ -329,7 +329,7 @@
                 var data = new Uint8Array(a.data);
                 console.log("Uint8Array data", data);
             }
-            newWebsocket.connect("210.211.101.230", 244, false);
+            newWebsocket.connect("27.118.22.53", 8900, false);
         }
 
         this.addJackpotGame();
