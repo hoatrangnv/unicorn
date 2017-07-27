@@ -80,13 +80,14 @@
                 port = port + 1;
             }
             // cc.log("create websocket client begin");
-            this.ws = new WebSocket("ws" + (isSsl ? "s" : "") + "://" + host + ":" + port + "/websocket");
+            this.ws = new WebSocket("ws" + (isSsl ? "s" : "") + "://" + host + ":" + port + "/ws");
             this.listener = listenner;
             this.ws.binaryType = "arraybuffer";
             this.ws.onopen = this.onSocketConnect.bind(this);
             this.ws.onclose = this.onSocketClose.bind(this);
             this.ws.onmessage = this.onSocketData.bind(this);
             this.ws.onerror = this.onSocketError.bind(this);
+            console.log("init ws");
             // cc.log("create websocket client emd");
         },
 

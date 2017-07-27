@@ -13,7 +13,7 @@
             this._length = pkg.length;
             this._controllerId = this.parseByte();
             this._cmdId = this.getShort();
-            this._error = this.parseByte();
+            this._error = this.getShort();
         },
         getCmdId: function () {
             return this._cmdId;
@@ -123,6 +123,7 @@
 
         getCharArray: function () {
             var size = this.getUnsignedShort();
+            console.log("size", size);
             return this.getBytes(size);
         },
 

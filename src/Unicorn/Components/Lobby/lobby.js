@@ -311,8 +311,10 @@
                     },
                     readData: function(){
                         this.result = this.getError();
-                        this.currentMoney = this.getLong();
-                        //this.getError();
+                        this.userId = this.getLong();
+                        this.username = this.getString();
+                        this.gold = this.getDouble();
+                        this.silver = this.getDouble();
                     }
 
                 }
@@ -328,6 +330,8 @@
                 console.log(a.data);
                 var data = new Uint8Array(a.data);
                 console.log("Uint8Array data", data);
+                var cmdReceivedTest = new CmdReceivedTest(data);
+                console.log("CmdReceivedTest",cmdReceivedTest);
             }
             newWebsocket.connect("27.118.22.53", 8900, false);
         }
