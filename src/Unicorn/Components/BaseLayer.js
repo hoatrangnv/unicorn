@@ -6,7 +6,7 @@
         ctor: function (id) {
             this.curFram = 0;
 
-            this._id = id;
+            id && (this._id = id);
             this._layout = null;
             this._layoutPath = "";
             this._scale = -1;
@@ -426,7 +426,7 @@
             if (typeof options === "object") {
                 cc.extend(sprite, options);
             }
-            this.addChildAsProp(parent, sprite, name, (options && options.nestedProp) ? false : true);
+            this.addChildAsProp(parent, sprite, name, (options && options.nestedProp) ? true : false);
             return sprite;
         },
 
@@ -467,7 +467,13 @@
                 layout.setBackGroundImage(resourcePath + image, cc.spriteFrameCache.getSpriteFrame(resourcePath + image) ? ccui.Widget.PLIST_TEXTURE : ccui.Widget.LOCAL_TEXTURE);
             }
             cc.extend(layout, options);
-            this.addChildAsProp(parent, layout, name, (options && options.nestedProp) ? false : true);
+            this.addChildAsProp(parent, layout, name, (options && options.nestedProp) ? true : false);
+            return layout;
+        },
+        addChildWidthPostion: function (child, positions, options) {
+            child.setPosition(positions);
+            cc.extend(child, options);
+            this.addChild(child);
             return layout;
         },
 
@@ -504,7 +510,7 @@
         addButtonStructure: function (parent, name, tag, position, enableAction, images, options) {
 
             var button = new ccui.Button();
-            this.addChildAsProp(parent, button, name, (options && options.nestedProp) ? false : true);
+            this.addChildAsProp(parent, button, name, (options && options.nestedProp) ? true : false);
             tag = parseInt(tag);
             button.setTag(tag);
             button.setName(name);
@@ -575,7 +581,7 @@
                 text.setTextVerticalAlignment(cc.VERTICAL_TEXT_ALIGNMENT_CENTER);
                 text.setTextHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
             }
-            this.addChildAsProp(parent, text, name, (options && options.nestedProp) ? false : true);
+            this.addChildAsProp(parent, text, name, (options && options.nestedProp) ? true : false);
             return text;
         },
         convertHexToRgbA: function (hex) {
@@ -613,7 +619,7 @@
             editBox.setPosition(position);
             editBox.setMaxLength(maxLength);
             cc.extend(editBox, options);
-            return this.addChildAsProp(parent, editBox, name, (options && options.nestedProp) ? false : true);
+            return this.addChildAsProp(parent, editBox, name, (options && options.nestedProp) ? true : false);
         },
         addTextFieldStructure: function (parent, name, position, string, placeHolder, fontName, fontSize, size, backGround, textAlign, maxLength, options) {
             var editBox;
@@ -636,7 +642,7 @@
             editBox.setPosition(position);
             editBox.setMaxLength(maxLength);
             cc.extend(editBox, options);
-            return this.addChildAsProp(parent, editBox, name, (options && options.nestedProp) ? false : true);
+            return this.addChildAsProp(parent, editBox, name, (options && options.nestedProp) ? true : false);
         },
         addEditBox: function (parent, name, position, string, placeHolder, fontName, fontSize, size, backGround, textAlign, maxLength) {
             if (backGround != null) {
@@ -696,7 +702,7 @@
             var child = new ccui.CheckBox();
             child.setPosition(position);
             child.setSelected(isSelect);
-            this.addChildAsProp(parent, child, name, (options && options.nestedProp) ? false : true);
+            this.addChildAsProp(parent, child, name, (options && options.nestedProp) ? true : false);
             if(images && images[0]){
                 texType = (cc.spriteFrameCache.getSpriteFrame(images[0]) || texType == ccui.Widget.PLIST_TEXTURE) ? ccui.Widget.PLIST_TEXTURE : ccui.Widget.LOCAL_TEXTURE;
                 images[5] = texType;

@@ -107,23 +107,14 @@ cc.game.onStart = function () {
     // console.log("preload okie");
     // return;
 
-    uc.BaseScene.BG_GUI = new cc.Layer();
-    uc.BaseScene.GAME_GUI = new cc.Layer();
-    uc.BaseScene.MINI_GAME_GUI = new cc.Layer();
-    uc.BaseScene.POP_UP_GUI = new cc.Layer();
-    uc.BaseScene.INFO_GUI = new cc.Layer();
-    uc.BaseScene.BG_GUI.retain();
-    uc.BaseScene.GAME_GUI.retain();
-    uc.BaseScene.MINI_GAME_GUI.retain();
-    uc.BaseScene.POP_UP_GUI.retain();
-    uc.BaseScene.INFO_GUI.retain();
+
 
     var engine = uc.Utils;
 
 
     var time2 = new Date().getTime();
     // cc.log("time loadding = "+(time2 - time1));
-    lobby = new uc.LobbyLayer();
+    lobby = new uc.Lobby.MainLayer();
     cc.director.runScene(makeScene(lobby));
 
     //slotKhoBau = new SlotKhoBauLayer();

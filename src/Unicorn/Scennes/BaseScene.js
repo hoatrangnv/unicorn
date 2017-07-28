@@ -1,12 +1,33 @@
 (function () {
-    var root = this;var GameScene = null;
-    var MainContent = null;
 
     var BaseScene = uc.BaseScene = cc.Scene.extend({
         ctor: function(){
             this._super();
-            this.listGameGui = [];
-            this.gameGui = null;
+        },
+
+        onEnter : function () {
+            this.resizeScene();
+        },
+
+        resizeScene: function () {
+
+            var frameSize = cc.view.getFrameSize();
+            var scaleWidth = frameSize.width / 1280;
+            var scaleHeight = frameSize.height / 720;
+
+            var globalScaleFactor = scaleHeight < scaleWidth ? scaleHeight / scaleWidth : scaleWidth / scaleHeight;
+            if (cc.sys.isNative) {
+                var winSize = cc.director.getWinSize();
+                var originPos = cc.director.getVisibleOrigin();
+                this.setPosition(originPos);
+
+                //GameScene.setPosition(originPos.x,   winSize.height*0.5 - winSize.height*0.5*globalScaleFactor);
+                //GameScene.setScale(globalScaleFactor);
+                //var origame
+            }
+
+            return GameScene;
+
         },
 
         addChild: function (child) {
@@ -43,7 +64,6 @@
         },
 
         addGUI: function(child, index, zOrder){
-            // cc.log("addGUI");
             switch(index){
                 case BaseScene.INDEX_BG_GUI:
                     break;
@@ -75,58 +95,6 @@
     BaseScene.MINI_GAME_GUI = null;
     BaseScene.POP_UP_GUI = null;
     BaseScene.INFO_GUI = null;
-
-
-
-    var globalScaleFactor = globalScaleFactor || 1;
-    BaseScene.makeScene = function(layer){
-        // cc.log("make Scene");
-
-
-        var frameSize = cc.view.getFrameSize();
-        var scaleWidth = frameSize.width/ 1280;
-        var scaleHeight = frameSize.height/ 720;
-        globalScaleFactor = scaleHeight < scaleWidth ? scaleHeight/scaleWidth: scaleWidth/scaleHeight ;
-
-        if(GameScene === null) {
-            GameScene = new BaseScene();
-            if(cc.sys.isNative){
-                cc.log(globalScaleFactor);
-                var winSize = cc.director.getWinSize();
-                var originPos = cc.director.getVisibleOrigin();
-
-                //GameScene.setPosition(originPos.x,   winSize.height*0.5 - winSize.height*0.5*globalScaleFactor);
-                GameScene.setPosition(originPos);
-                //GameScene.setScale(globalScaleFactor);
-                //var origame
-            }
-            var baseLobby = new uc.BaseLobby();
-            MainContent = baseLobby.main_content;
-            GameScene.addChild(baseLobby);
-
-            MainContent.addChild(BaseScene.BG_GUI, BaseScene.INDEX_BG_GUI);
-            MainContent.addChild(BaseScene.GAME_GUI, BaseScene.INDEX_GAME_GUI);
-            MainContent.addChild(BaseScene.MINI_GAME_GUI, BaseScene.INDEX_MINIGAME_GUI);
-            MainContent.addChild(BaseScene.INFO_GUI, BaseScene.INDEX_INFO_GUI);
-            MainContent.addChild(BaseScene.POP_UP_GUI, BaseScene.INDEX_POP_UP_GUI);
-            // cc.log("end ctorLobby222");
-        }
-        BaseScene.BG_GUI.addChild(layer);
-        // cc.log("end onEnter Lobby333");
-
-        return GameScene;
-    }
-
-
-    makeScene2 = function(layer){
-        cc.log("make Scene");
-        testGameScene = new BaseScene();
-        testGameScene.addChild(layer);
-        return testGameScene;
-    }
-
-    var testGameScene = null;
-    var testLobby = null;
 
 }.call(this));
 

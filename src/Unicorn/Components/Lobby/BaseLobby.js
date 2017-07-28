@@ -1,17 +1,9 @@
 (function () {
     var root = this;
-    var BaseLobby = uc.BaseLobby = uc.BaseLayer.extend(
-        {
+    var BaseLobby = uc.Lobby.BaseLobby = uc.BaseLayer.extend({
 
             ctor: function () {
                 this._super("BaseLobby");
-                this.sizeSceen = null;
-                this.positionCenter = null;
-                this.positionContent = null;
-                this.bg = null;
-                this.main_content = null;
-                this.imageBg = null;
-
 
                 if (cc.sys.isNative) {
 
@@ -31,9 +23,7 @@
                 return true;
             },
             onEnter: function () {
-                // cc.log("Base Lobby");
-                this._super();
-                // cc.log("end Base Lobby hehe");
+                // this._super();//??/
             },
 
             initGUI: function () {
@@ -44,7 +34,7 @@
 
             },
             addGUI: function (layer, zOrder) {
-                this.main_content.addChild(layer, zOrder);
+                // this.main_content.addChild(layer, zOrder);
             }
         }
     );
