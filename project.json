@@ -56,7 +56,6 @@
 
 
     "src/Unicorn/Components/BaseLayer.js",
-    "src/Unicorn/Components/BaseLobby.js",
     "src/Unicorn/Components/BaseScene.js",
     "src/Unicorn/Components/SceneMgr.js",
     "src/Unicorn/Components/BaseLayerTable.js",
@@ -80,10 +79,9 @@
     "src/Unicorn/Scennes/LobbyScene.js",
 
     "src/Unicorn/Components/Lobby/index.js",
-    "src/Unicorn/Components/Lobby/lobbyHeader.js",
     "src/Unicorn/Components/Lobby/loginBar.js",
     "src/Unicorn/Components/Lobby/gameList.js",
-    "src/Unicorn/Components/Lobby/lobby.js",
+    "src/Unicorn/Components/Lobby/mainLayer.js",
 
     "src/Unicorn/Components/Slots/BaseLayerSlots.js",
     "src/Unicorn/Components/Slots/ItemMenuSlots.js",

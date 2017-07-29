@@ -127,9 +127,6 @@
         instanceGameToast.setLocalZOrder(198);
         return instanceGameToast;
     }
-
-
-    console.log("cc", cc);
 }.call(this));
 
 

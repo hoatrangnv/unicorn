@@ -53,82 +53,81 @@
  */
 
 cc.game.onStart = function () {
-  // cc.log("onStart begin");
-  if (!cc.sys.isNative && document.getElementById("cocosLoading")) {
-    cc.log(" -----------> remove cocosLoading child")
-    document.body.removeChild(document.getElementById("cocosLoading"));
-  }
-  cc.resPath = "./res";
-  //jsb.fileUtils.addSearchPath("/");
-  //jsb.fileUtils.addSearchPath("res/");
-  // Pass true to enable retina display, on Android disabled by default to improve performance
-  cc.view.enableRetina(cc.sys.os === cc.sys.OS_IOS ? true : false);
-  // Adjust viewport meta
-  cc.view.adjustViewPort(true);
-  // Setup the resolution policy and design resolution size
-  // cc.log("cc.game.onStart" + cc.view.getFrameSize().width + " " + cc.view.getFrameSize().height);
-
-  // var globalScaleFactor = globalScaleFactor;
-  if (cc.sys.isNative) {
-    //cc.view.setDesignResolutionSize(1280, 720, cc.ResolutionPolicy.SHOW_ALL);
-
-    //var frameSize = cc.view.getFrameSize();
-    //var scaleWidth = frameSize.width/ 1280;
-    //var scaleHeight = frameSize.height/ 720;
-    //globalScaleFactor = scaleHeight < scaleWidth ? scaleHeight/scaleWidth: scaleWidth/scaleHeight ;
-    //cc.log("globalScaleFactor " + scaleWidth + " " + + scaleHeight +  " " + globalScaleFactor);
-    cc.view.setDesignResolutionSize(1280, 720, cc.ResolutionPolicy.SHOW_ALL);
-
-
-  } else {
-    cc.view.setDesignResolutionSize(1920, 1080, cc.ResolutionPolicy.NO_BORDER);
-  }
-  //var glview = cc.director.getOpenGLView();
-  //if(!glview)
-  //{
-  //    glview = cc.GLView.create("VinPlay");
-  //    cc.director.setOpenGLView(glview);
-  //}
-  // Instead of set design resolution, you can also set the real pixel resolution size
-  // Uncomment the following line and delete the previous line.
-  // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
-  // The game will be resized when browser size change
-  cc.view.resizeWithBrowserSize(true);
-  // time1 = new Date().getTime();
-
-  //require('src/Engine/Utility/ConnectVinplay.js');
-
-  //load resources
-  cc.LoaderScene.preload(g_resources, function () {
-    //testLobby = new TestScene();
-    //testLobby = new GameLobby();
-    //cc.director.runScene(makeScene(testLobby));
-
-    // console.log("preload okie");
-    // return;
-
-
-
-    var engine = uc.Utils;
-
-
-    var time2 = new Date().getTime();
-    // cc.log("time loadding = "+(time2 - time1));
-    // lobby = new uc.Lobby.MainLayer();
-    // cc.director.runScene(makeScene(lobby));
-    lobby = new uc.LobbyScene();
-    cc.director.runScene(lobby);
-
-    //slotKhoBau = new SlotKhoBauLayer();
-    //cc.director.runScene(makeScene(lobby));
-    //var kk = new TestScene();
-    //cc.director.runScene(makeScene(kk));
-
-    if (!cc.sys.isNative) {
-      cc.director.getScheduler().scheduleUpdate(engine.HandlerManager.getInstance(), 0, false);
+    // cc.log("onStart begin");
+    if (!cc.sys.isNative && document.getElementById("cocosLoading")) {
+        cc.log(" -----------> remove cocosLoading child")
+        document.body.removeChild(document.getElementById("cocosLoading"));
     }
+    cc.resPath = "./res";
+    //jsb.fileUtils.addSearchPath("/");
+    //jsb.fileUtils.addSearchPath("res/");
+    // Pass true to enable retina display, on Android disabled by default to improve performance
+    cc.view.enableRetina(cc.sys.os === cc.sys.OS_IOS ? true : false);
+    // Adjust viewport meta
+    cc.view.adjustViewPort(true);
+    // Setup the resolution policy and design resolution size
+    // cc.log("cc.game.onStart" + cc.view.getFrameSize().width + " " + cc.view.getFrameSize().height);
 
-  }, this);
-  // cc.log("onStart finish");
+    // var globalScaleFactor = globalScaleFactor;
+    if (cc.sys.isNative) {
+        //cc.view.setDesignResolutionSize(1280, 720, cc.ResolutionPolicy.SHOW_ALL);
+
+        //var frameSize = cc.view.getFrameSize();
+        //var scaleWidth = frameSize.width/ 1280;
+        //var scaleHeight = frameSize.height/ 720;
+        //globalScaleFactor = scaleHeight < scaleWidth ? scaleHeight/scaleWidth: scaleWidth/scaleHeight ;
+        //cc.log("globalScaleFactor " + scaleWidth + " " + + scaleHeight +  " " + globalScaleFactor);
+        cc.view.setDesignResolutionSize(1280, 720, cc.ResolutionPolicy.SHOW_ALL);
+    } else {
+        cc.view.setDesignResolutionSize(1920, 1080, cc.ResolutionPolicy.NO_BORDER);
+    }
+    //var glview = cc.director.getOpenGLView();
+    //if(!glview)
+    //{
+    //    glview = cc.GLView.create("VinPlay");
+    //    cc.director.setOpenGLView(glview);
+    //}
+    // Instead of set design resolution, you can also set the real pixel resolution size
+    // Uncomment the following line and delete the previous line.
+    // cc.view.setRealPixelResolution(960, 640, cc.ResolutionPolicy.SHOW_ALL);
+    // The game will be resized when browser size change
+    cc.view.resizeWithBrowserSize(true);
+    // time1 = new Date().getTime();
+
+    //require('src/Engine/Utility/ConnectVinplay.js');
+
+    //load resources
+    cc.LoaderScene.preload(g_resources, function () {
+        //testLobby = new TestScene();
+        //testLobby = new GameLobby();
+        //cc.director.runScene(makeScene(testLobby));
+
+        // console.log("preload okie");
+        // return;
+
+
+
+
+        var time2 = new Date().getTime();
+        // cc.log("time loadding = "+(time2 - time1));
+
+
+
+
+        var lobby = new uc.LobbyScene();
+        cc.director.runScene(lobby);
+
+        //slotKhoBau = new SlotKhoBauLayer();
+        //cc.director.runScene(makeScene(lobby));
+        //var kk = new TestScene();
+        //cc.director.runScene(makeScene(kk));
+
+        if (!cc.sys.isNative) {
+            var engine = uc.Utils;
+            cc.director.getScheduler().scheduleUpdate(engine.HandlerManager.getInstance(), 0, false);
+        }
+
+    }, this);
+    // cc.log("onStart finish");
 };
 cc.game.run();

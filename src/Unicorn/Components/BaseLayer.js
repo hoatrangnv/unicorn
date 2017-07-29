@@ -4,8 +4,10 @@
     var BaseLayer = uc.BaseLayer = cc.Layer.extend({
 
         ctor: function (id) {
-          // cc.Layer.prototype.ctor.call(this);
-            this._super();
+            // this._super();
+
+            cc.Layer.prototype.ctor.call(this);
+
             this.curFram = 0;
 
             id && (this._id = id);
@@ -58,6 +60,7 @@
             this.setContentSize(cc.winSize);
             this.setAnchorPoint(cc.p(.5, .5));
             this.customizeGUI();
+            console.log("BaseLayer onEnter");
         },
 
         initWithJsonFile: function (json) {

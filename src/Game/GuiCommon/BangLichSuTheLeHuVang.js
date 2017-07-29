@@ -1,6 +1,6 @@
 var BangLichSuTheLeHuVang = MiniGameBaseLayer.extend({
     ctor: function(){
-        this._super("g_res_cardGame_json_theLeGameBai");
+        this._super("");
 
         var posInitialX = 0;
         var posInitialY = 0;

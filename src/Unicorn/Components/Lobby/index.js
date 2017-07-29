@@ -6,8 +6,10 @@
         ctor: function () {
             this._super();
             this.resourcePath = "res/Lobby";
-            return true;
-        }
+        },
+        onEnter: function () {
+            this._super();
+        },
     })
 
 }.call(this));
