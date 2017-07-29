@@ -4,6 +4,8 @@
     var BaseLayer = uc.BaseLayer = cc.Layer.extend({
 
         ctor: function (id) {
+          // cc.Layer.prototype.ctor.call(this);
+            this._super();
             this.curFram = 0;
 
             id && (this._id = id);
@@ -22,7 +24,6 @@
                 this._scale = (this._scale > 1) ? 1 : this._scale;
             }
 
-            cc.Layer.prototype.ctor.call(this);
             this._layerColor = new cc.LayerColor(cc.BLACK);
             this.addChild(this._layerColor);
             this._layerColor.setVisible(false);

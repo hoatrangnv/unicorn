@@ -114,8 +114,10 @@ cc.game.onStart = function () {
 
     var time2 = new Date().getTime();
     // cc.log("time loadding = "+(time2 - time1));
-    lobby = new uc.Lobby.MainLayer();
-    cc.director.runScene(makeScene(lobby));
+    // lobby = new uc.Lobby.MainLayer();
+    // cc.director.runScene(makeScene(lobby));
+    lobby = new uc.LobbyScene();
+    cc.director.runScene(lobby);
 
     //slotKhoBau = new SlotKhoBauLayer();
     //cc.director.runScene(makeScene(lobby));
