@@ -21,6 +21,7 @@
                 ctor: function () {
                     // this._super();
                     cc.Layer.prototype.ctor.call(this);
+                    return true;
                 },
                 onEnter: function () {
                     cc.Layer.prototype.onEnter.call(this);
@@ -30,7 +31,7 @@
 
             // var lobbyLayer = new uc.Lobby.MainLayer();
             var baseLobby = new BaseLayer();
-            console.log("lobbyLayer.onEnter", baseLobby.onEnter);
+            console.log("lobbyLayer.onEnter", baseLobby.ctor , baseLobby.onEnter);
             this.addChild(baseLobby);
 
             // var baseLayer = new uc.BaseLayer();

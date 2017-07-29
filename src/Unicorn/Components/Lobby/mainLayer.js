@@ -4,6 +4,7 @@
     uc.Lobby.MainLayer = uc.Lobby.BaseLayer.extend({
             ctor: function () {
                 this._super();
+                return true;
             },
             onEnter: function () {
                 this._super();

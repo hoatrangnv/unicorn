@@ -10,6 +10,7 @@
         },
 
         onEnter: function () {
+            this._super();
             this.resizeScene();
         },
 
