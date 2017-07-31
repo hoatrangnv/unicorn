@@ -60,7 +60,6 @@
             this.setContentSize(cc.winSize);
             this.setAnchorPoint(cc.p(.5, .5));
             this.customizeGUI();
-            console.log("BaseLayer onEnter");
         },
 
         initWithJsonFile: function (json) {
@@ -478,7 +477,7 @@
             child.setPosition(positions);
             cc.extend(child, options);
             this.addChild(child);
-            return layout;
+            return child;
         },
 
         addButton: function (parent, name, tag, position, action, imageNol, imageS, texType) {

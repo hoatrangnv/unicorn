@@ -4,7 +4,7 @@
 
     var lobby = null;
 
-    var LobbyLayer = uc.Lobby.LoginBar = uc.Lobby.BaseLayer.extend({
+    var LobbyLayer = uc.Lobby.header = uc.Lobby.BaseLayer.extend({
             ctor: function () {
                 this._super();
                 return true;

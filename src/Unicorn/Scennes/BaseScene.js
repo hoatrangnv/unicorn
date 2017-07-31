@@ -40,9 +40,9 @@
             mainContent.setCascadeOpacityEnabled(true);
             mainContent.setPosition(this.positionContent);
 
-            mainContent.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-            mainContent.setBackGroundColor(cc.color("#000000"));
-            mainContent.setBackGroundColorOpacity(125);
+            // mainContent.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+            // mainContent.setBackGroundColor(cc.color("#000000"));
+            // mainContent.setBackGroundColorOpacity(125);
             this.addChild(mainContent);
         },
 

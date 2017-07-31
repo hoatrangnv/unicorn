@@ -1,5 +1,6 @@
 (function () {
     var root = this;
+    var resLobbyPath = "res/Lobby";
 
     uc.Lobby.MainLayer = uc.Lobby.BaseLayer.extend({
             ctor: function () {
@@ -7,33 +8,24 @@
                 return true;
             },
             onEnter: function () {
+                this.setBackground();
                 this._super();
+            },
+            setBackground : function () {
+                this.setPosition(cc.p(0, 0));
+                this.setAnchorPoint(0, 0);
+                this.addSprite(this, "shadow", cc.p(640, 360), resLobbyPath + "/Shadow.jpg");
+                this.setContentSize(cc.size(1280, 720));
             },
 
             customizeGUI: function () {
-                console.log("customizeGUI Lobby.MainLayer");
-                this.addSprite(this, "shadow", cc.p(640, 360), res_Lobby + "/Shadow.jpg");
-
-                // var loginBar = new uc.Lobby.LoginBar();
-                // this.addChildWidthPostion(loginBar, cc.p(640, 678));
-
-                this.setContentSize(cc.size(1280, 720));
-
-                var mainContent = this.mainContent = new ccui.Layout();
-                mainContent.setAnchorPoint(0.5, 0.5);
-                mainContent.setContentSize(cc.size(280, 100));
-                mainContent.setTouchEnabled(true);
-                mainContent.setCascadeOpacityEnabled(true);
-                mainContent.setPosition(this.positionContent);
-
-                mainContent.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-                mainContent.setBackGroundColor(cc.color("#990000"));
-                this.addChild(mainContent);
+                var loginBar = new uc.Lobby.LoginBar();
+                this.addChildWidthPostion(loginBar, cc.p(640, 308));
 
                 // var gameList = new uc.Lobby.GameList();
                 // loginBar.setPosition();
                 // this.addChildWidthPostion(loginBar,cc.p(640, 678));
-                //
+
                 // this.initPContent();
                 // this.initGameInfo();
             }

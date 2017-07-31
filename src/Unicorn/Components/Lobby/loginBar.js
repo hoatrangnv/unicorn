@@ -1,6 +1,7 @@
 (function () {
     var root = this;
     var res_Lobby = uc.commonConfigs.res_Lobby;
+    var fonts = uc.fonts;
 
     var lobby = null;
 
@@ -10,6 +11,19 @@
                 return true;
             },
             customizeGUI: function () {
+                console.log("customizeGUI lobby layer");
+
+                var mainContent = this.mainContent = new ccui.Layout();
+                mainContent.setAnchorPoint(0.5, 0.5);
+                mainContent.setContentSize(cc.size(100, 100));
+                mainContent.setTouchEnabled(true);
+                mainContent.setCascadeOpacityEnabled(true);
+
+                mainContent.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
+                mainContent.setBackGroundColor(cc.color("#000000"));
+                mainContent.setBackGroundColorOpacity(125);
+                this.addChild(mainContent);
+
                 cc.spriteFrameCache.addSpriteFrames("res/Lobby/PlistLobby.plist", "res/Lobby/PlistLobby.png");
 
                 this.addLayout(this, "pLogin", cc.p(640, 678), null, cc.size(1280, 78), true);//tab Dang Nhap

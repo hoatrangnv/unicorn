@@ -112,27 +112,7 @@ cc.game.onStart = function () {
         // cc.log("time loadding = "+(time2 - time1));
 
 
-        var BaseLayer = cc.Layer.extend({
-            ctor: function () {
-                // this._super();
-                cc.Layer.prototype.ctor.call(this);
-                return true;
-            },
-            onEnter: function () {
-                cc.Layer.prototype.onEnter.call(this);
-                console.log("BaseLayer on Enter 1344");
-            }
-        });
-
-        // var lobbyLayer = new uc.Lobby.MainLayer();
-        var baseLobby = new BaseLayer();
-        console.log("lobbyLayer.onEnter", baseLobby.ctor , baseLobby.onEnter);
-
-
-        var lobby = new uc.BaseScene();
-        // var lobby = new cc.Scene();
-
-        lobby.addChild(baseLobby);
+        var lobby = new uc.LobbyScene();
 
         cc.director.runScene(lobby);
 
