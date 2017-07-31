@@ -540,7 +540,7 @@
             var initTextType = {
                 titleText: "",
                 titleColor: cc.color.WHITE,
-                titleFontName: SeagullBold.fontName,
+                titleFontName: uc.fonts.SeagullBold.fontName,
                 titleFontSize: 30
             };
             cc.extend(button, initTextType, options, (options && options.nestedProp) ? false : true);
