@@ -11,7 +11,7 @@
     configs.res_common_chat = "res/common/chat";
     configs.res_CardGame_LaBai = "res/CardGame/LaBai";
     configs.res_CardGame_BaCay = "res/CardGame/BaCay";
-    configs.res_Lobby = "res/Lobby";
+    configs.res_Lobby = "res/Lobby/";
     configs.res_Minigame = "res/Minigame";
     configs.res_Minigame_BauCua = "res/Minigame/BauCua";
     configs.res_CardGame_MauBinh = "res/CardGame/MauBinh"

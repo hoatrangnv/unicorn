@@ -5,7 +5,7 @@
     uc.Lobby.BaseLayer = uc.BaseLayer.extend({
         ctor: function () {
             this._super();
-            this.resourcePath = "res/Lobby";
+            this.resourcePath = "res/Lobby/";
         },
         onEnter: function () {
             this._super();
