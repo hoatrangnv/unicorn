@@ -123,7 +123,6 @@
 
         getCharArray: function () {
             var size = this.getUnsignedShort();
-            console.log("size", size);
             return this.getBytes(size);
         },
 

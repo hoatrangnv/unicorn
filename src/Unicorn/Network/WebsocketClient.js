@@ -79,7 +79,6 @@
             if (isSsl) {
                 port = port + 1;
             }
-            // cc.log("create websocket client begin");
             this.ws = new WebSocket("ws" + (isSsl ? "s" : "") + "://" + host + ":" + port + "/ws");
             this.listener = listenner;
             this.ws.binaryType = "arraybuffer";
@@ -87,12 +86,10 @@
             this.ws.onclose = this.onSocketClose.bind(this);
             this.ws.onmessage = this.onSocketData.bind(this);
             this.ws.onerror = this.onSocketError.bind(this);
-            console.log("init ws");
             // cc.log("create websocket client emd");
         },
 
         closeSocket: function () {
-
             if (!cc.sys.isNative || !useTCP) {
                 this.ws.close();
             }
@@ -103,47 +100,29 @@
         },
 
         onSocketConnect: function () {
-            if (false) {
-                this.event = EVENT_CONNECT_SUCCESS;
-            } else {
-                if (this.listener && this.listener.onFinishConnect) {
-                    this.listener.target = this;
-                    this.listener.onFinishConnect.call(this.listener, true);
-                }
+            if (this.listener && this.listener.onFinishConnect) {
+                this.listener.target = this;
+                this.listener.onFinishConnect.call(this.listener, true);
             }
         },
 
         onSocketClose: function () {
             cc.log("CONNECT CLOSED");
-            if (false) {
-                this.event = EVENT_DISCONNECT;
-            } else {
-                if (this.listener && this.listener.onDisconnected) {
-                    this.listener.target = this;
-                    this.listener.onDisconnected.call(this.listener);
-                }
+            if (this.listener && this.listener.onDisconnected) {
+                this.listener.target = this;
+                this.listener.onDisconnected.call(this.listener);
             }
         },
         onSocketData: function (a) {
             var data = new Uint8Array(a.data);
-            if (false) {
-                this.data.push(data);
-            } else {
-                if (this.listener && this.listener.onReceived) {
-
-                    this.listener.onReceived.call(this.listener, 0, data);
-                }
+            if (this.listener && this.listener.onReceived) {
+                this.listener.onReceived.call(this.listener, data);
             }
         },
         onSocketError: function () {
-            cc.log("error connect");
-            if (false) {
-                this.event = EVENT_CONNECT_ERROR;
-            } else {
-                if (this.listener && this.listener.onFinishConnect) {
-                    this.listener.target = this;
-                    this.listener.onFinishConnect.call(this.listener, false);
-                }
+            if (this.listener && this.listener.onError) {
+                this.listener.target = this;
+                this.listener.onError.call(this.listener, false);
             }
         },
         send: function (packet) {

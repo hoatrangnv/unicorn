@@ -44,42 +44,16 @@
       },
 
       onButtonRelease: function (button, id) {
-        console.log("onTouchEventHandler");
-        switch (id) {
+        console.log("onTouchEventHandler",id,ButtonActions.login);
+        switch (id.toString()) {
           case ButtonActions.login :
             this.loginNormal();
             break;
         }
       },
       loginNormal: function () {
-        var url = this.getUrlLogin();
-        if (url != null) {
-          sendRequest(url, null, false, this.callBackLogIn, this.callBackError);
-          showLoading();
-        }
-      },
-
-      getUrlLogin: function () {
-        var user = this._usernameTf.getString();
-        var pass = this._passwordTf.getString();
-        lobby.save_username = user;
-        if (user == null || user.length < 6) {
-          popup.openPanel_Alert_Lobby("Bạn chưa nhập tên đăng nhập hoặc nhập sai tên đăng nhập!");
-          lobby.AlertLogin = true;
-          return null;
-        }
-        if (pass == null || pass.length < 6) {
-          popup.openPanel_Alert_Lobby("Bạn chưa nhập mật khẩu hoặc nhập sai mật khẩu!");
-          lobby.AlertLogin = true;
-          return null;
-        }
-
-        this.userName = user;
-        this.passWord = pass;
-        pass = md5(pass);
-        var url = urlLogin(user, pass, lobby.platform);
-        return url;
-
+        var ws = uc.Network.MainWebsocket.getInstance();
+        console.log(ws);
       }
     }
   )

@@ -96,6 +96,7 @@
     "src/Unicorn/Components/NetworkCommon/CMDCommonDefine.js",
     "src/Unicorn/Components/NetworkCommon/InPacket.js",
     "src/Unicorn/Components/NetworkCommon/OutPacket.js",
+    "src/Unicorn/Components/NetworkCommon/MainWs.js",
 
     "src/Unicorn/Components/GuiCommon/Dialog.js",
     "src/Unicorn/Components/GuiCommon/GameLobby.js",
