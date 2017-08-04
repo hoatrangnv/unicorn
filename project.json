@@ -113,6 +113,9 @@
     "src/Unicorn/Components/GuiCommon/NoHuLayer.js",
     "src/Unicorn/Components/GuiCommon/ThongTinHuVangIcon.js",
 
+    "src/Unicorn/Components/Adapters/adapter.js",
+    "src/Unicorn/Components/Adapters/index.js",
+
     "src/Unicorn/Games/CoCaro/Constants.js",
     "src/Unicorn/Games/CoCaro/GameGui/CoCaroScene.js",
     "src/Unicorn/Games/CoCaro/GameGui/EffectLayer.js",
