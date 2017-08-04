@@ -8,6 +8,15 @@
 
     var adapter = uc.adapterManager = new EventEmitter();
 
-    adapter._adapters = [];
+    var _adapters = adapter._adapters = [];
+
+    for(var prop in Adapters ){
+        var temAdt = new uc.Adapter(prop, Adapters[prop]);
+        _adapters.push(temAdt);
+    }
+
+    adapter.on("dataReceiver",function (inPacket) {
+        this.con
+    })
 
 }.call(this));
