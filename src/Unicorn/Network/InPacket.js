@@ -141,4 +141,14 @@
 
         }
     });
+
+    InPacket.functionTypes = {
+        BYTE : 1,
+        SHORT : 2,
+        UNSINGEDSHORT : 3,
+        INT : 4,
+        LONG : 5,
+        DOUBLE : 6,
+        STRING : 7
+    }
 }.call(this));

@@ -10,7 +10,11 @@
         login: "3",
         register: "4",
         forgotPassword: "5"
-    }
+    };
+    var lobbyControllerId = uc.adapterManager.adapters.lobby;
+    var lobbySendCmds = uc.Lobby.sendCmds;
+    var lobbyReceivedCmds = uc.Lobby.receicedCmds;
+    var lobbyAdapter = uc.adapterManager.getAdapterByName("lobby");
 
     var lobby = null;
 
@@ -51,26 +55,6 @@
                 }
             },
             loginNormal: function () {
-                var dataTypes = uc.Network.dataTypes;
-                var loginDataType = [["username",dataTypes.STRING],["password",dataTypes.STRING]];
-                var CmdSendLogin = uc.Network.CmdSendCommon.extend(
-                    {
-                        ctor: function () {
-                            this._super();
-                            this.initData(100);
-                            this.setControllerId(1);
-                            this.setCmdId(1);
-                        },
-                        putData: function (username, password) {
-                            //pack
-                            this.packHeader();
-                            this.putString(username);
-                            this.putString(password);
-                            this.updateSize();
-                        }
-                    }
-                );
-
                 var CmdReceivedLogin = uc.Network.CmdReceivedCommon.extend(
                     {
                         ctor: function (pkg) {
@@ -87,14 +71,17 @@
 
                     }
                 );
-                var lobbyAdapter = uc.adapterManager.getAdapterByName("lobby");
-                var loginData = new CmdSendCommon();
-                var
+                var loginData = new uc.Network.CmdSendCommon();
+                loginData.initHeader(lobbyControllerId,lobbySendCmds.login);
                 loginData.putData("caro12", "9a3d271a9906af2077264b5e3d27425c");
                 lobbyAdapter.sendMessage(loginData);
-                lobbyAdapter.on(1,function (data) {
+
+                lobbyAdapter.listenCmd(lobbyReceivedCmds.login, function () {
+                    console.log('hihi');
+                });
+
+                lobbyAdapter.on(lobbyReceivedCmds.login.cmdId, function (data) {
                     // var dataConvert = new CmdReceivedLogin(data);
-                    console.log("dataConvert",data);
                 })
             }
         }

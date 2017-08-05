@@ -78,7 +78,12 @@
     "src/Unicorn/Scennes/BaseScene.js",
     "src/Unicorn/Scennes/LobbyScene.js",
 
+    "src/Unicorn/Components/Adapters/adapter.js",
+    "src/Unicorn/Components/Adapters/index.js",
+
+
     "src/Unicorn/Components/Lobby/index.js",
+    "src/Unicorn/Components/Lobby/Network/sendCmds.js",
     "src/Unicorn/Components/Lobby/loginBar.js",
     "src/Unicorn/Components/Lobby/gameList.js",
     "src/Unicorn/Components/Lobby/mainLayer.js",
@@ -112,9 +117,6 @@
     "src/Unicorn/Components/GuiCommon/ChatLayer.js",
     "src/Unicorn/Components/GuiCommon/NoHuLayer.js",
     "src/Unicorn/Components/GuiCommon/ThongTinHuVangIcon.js",
-
-    "src/Unicorn/Components/Adapters/adapter.js",
-    "src/Unicorn/Components/Adapters/index.js",
 
     "src/Unicorn/Games/CoCaro/Constants.js",
     "src/Unicorn/Games/CoCaro/GameGui/CoCaroScene.js",

@@ -20,6 +20,13 @@
         uc.adapterManager.emit("sendCmd", outPacket);
     };
 
+    p.listenCmd = function (cmd,callback) {
+        this.on(cmd.cmdId,function () {
+            var receivedCmd = new uc.Network.CmdReceivedCommon(data);
+            var data = receivedCmd.readData(lobbyReceivedCmds.login);
+        });
+    }
+
 
 
 }.call(this));

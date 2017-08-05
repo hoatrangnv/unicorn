@@ -2,11 +2,11 @@
  * Created by Admin on 8/3/2017.
  */
 (function () {
-    var Adapters = {
-        "lobby": 1
-    }
 
     var adapter = uc.adapterManager = new EventEmitter();
+    var Adapters = adapter.adapters = {
+        "lobby": 1
+    }
 
     var _adapters = adapter._adapters = [];
 

@@ -1,7 +1,6 @@
 (function () {
     var root = this;
     var INDEX_SIZE_PACKET = 1;
-    var
 
     var OutPacket = uc.Network.OutPacket = cc.Class.extend({
         ctor: function () {
@@ -132,15 +131,6 @@
         },
         clean: function () {
 
-        }
-        putData: function (dataType, data) {
-            this.packHeader();
-            data.forEach(function (item, index) {
-
-                this.putString(username);
-                this.putString(password);
-            });
-            this.updateSize();
         }
     });
 }.call(this));

@@ -33,6 +33,9 @@
                     this._super();
                     this.init(pkg);
                 },
+                setDataTypes : function () {
+
+                },
                 readData: function () {
 
                 }
