@@ -1,7 +1,7 @@
 (function () {
     var root = this;
 
-    var parent = (!cc.sys.isNative || !useTCP) ? uc.Network.OutPacket : engine.OutPacket;
+    var parent = (!cc.sys.isNative || !useTCP) ? uc.Network.OutPacket : engxine.OutPacket;
 
     var p = parent.prototype;
 
@@ -27,6 +27,7 @@
             this.initData(size);
             this.setControllerId(controlerId);
             this.setCmdId(cmd.cmdId);
+            console.log("controlerId",controlerId,cmd.cmdId);
             this._dataTypes = cmd.dataTypes;
             this.packHeader();
         },

@@ -84,6 +84,7 @@
 
     "src/Unicorn/Components/Lobby/index.js",
     "src/Unicorn/Components/Lobby/Network/sendCmds.js",
+    "src/Unicorn/Components/Lobby/Network/receivedCmds.js",
     "src/Unicorn/Components/Lobby/loginBar.js",
     "src/Unicorn/Components/Lobby/gameList.js",
     "src/Unicorn/Components/Lobby/mainLayer.js",

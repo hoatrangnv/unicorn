@@ -13,7 +13,7 @@
     };
     var lobbyControllerId = uc.adapterManager.adapters.lobby;
     var lobbySendCmds = uc.Lobby.sendCmds;
-    var lobbyReceivedCmds = uc.Lobby.receicedCmds;
+    var lobbyReceivedCmds = uc.Lobby.receivedCmds;
     var lobbyAdapter = uc.adapterManager.getAdapterByName("lobby");
 
     var lobby = null;
@@ -76,13 +76,11 @@
                 loginData.putData("caro12", "9a3d271a9906af2077264b5e3d27425c");
                 lobbyAdapter.sendMessage(loginData);
 
-                lobbyAdapter.listenCmd(lobbyReceivedCmds.login, function () {
+                lobbyAdapter.listenCmd(lobbyReceivedCmds.login, function (data) {
                     console.log('hihi');
+                }, function (error) {
+                  console.log('error :' ,error);
                 });
-
-                lobbyAdapter.on(lobbyReceivedCmds.login.cmdId, function (data) {
-                    // var dataConvert = new CmdReceivedLogin(data);
-                })
             }
         }
     )

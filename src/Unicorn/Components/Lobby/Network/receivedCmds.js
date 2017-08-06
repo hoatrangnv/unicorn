@@ -4,15 +4,21 @@
 (function () {
     var dataTypes = uc.Network.dataTypes;
 
-    var cmds = uc.Lobby.receicedCmds = {
+    var cmds = uc.Lobby.receivedCmds = {
         login : {
             cmdId : 1,
             dataTypes : [{
-                name : "username",
-                type : dataTypes.STRING
+                name : "userId",
+                type : dataTypes.LONG
             },{
-                name : "password",
-                type : dataTypes.STRING
+              name : "username",
+              type : dataTypes.STRING
+            },{
+              name : "gold",
+              type : dataTypes.DOUBLE
+            },{
+              name : "silver",
+              type : dataTypes.DOUBLE
             }]
         },
     };

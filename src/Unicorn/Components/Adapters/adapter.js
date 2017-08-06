@@ -20,10 +20,16 @@
         uc.adapterManager.emit("sendCmd", outPacket);
     };
 
-    p.listenCmd = function (cmd,callback) {
-        this.on(cmd.cmdId,function () {
-            var receivedCmd = new uc.Network.CmdReceivedCommon(data);
-            var data = receivedCmd.readData(lobbyReceivedCmds.login);
+    p.listenCmd = function (cmd,_self,callbackSuccess, callbackError) {
+        this.on(cmd.cmdId,function (data) {
+            var error = data.getError();
+            if(!error){
+              var data = data.readData(cmd.dataTypes);
+              callbackSuccess && callbackSuccess.call(_self, data);
+            }else{
+              console.log("ws error with  cmd : ", error);
+              callbackError && callbackError.call(_self, error);
+            }
         });
     }
 
