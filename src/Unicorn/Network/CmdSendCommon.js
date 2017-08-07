@@ -27,7 +27,6 @@
             this.initData(size);
             this.setControllerId(controlerId);
             this.setCmdId(cmd.cmdId);
-            console.log("controlerId",controlerId,cmd.cmdId);
             this._dataTypes = cmd.dataTypes;
             this.packHeader();
         },

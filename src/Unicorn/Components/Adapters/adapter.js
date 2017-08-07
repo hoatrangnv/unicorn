@@ -20,15 +20,14 @@
         uc.adapterManager.emit("sendCmd", outPacket);
     };
 
-    p.listenCmd = function (cmd,_self,callbackSuccess, callbackError) {
+    p.listenCmd = function (cmd,callbackSuccess, callbackError) {
         this.on(cmd.cmdId,function (data) {
             var error = data.getError();
             if(!error){
               var data = data.readData(cmd.dataTypes);
-              callbackSuccess && callbackSuccess.call(_self, data);
+              callbackSuccess && callbackSuccess(data);
             }else{
-              console.log("ws error with  cmd : ", error);
-              callbackError && callbackError.call(_self, error);
+              callbackError && callbackError(error);
             }
         });
     }

@@ -1,26 +1,29 @@
 (function () {
 
-    var instance = undefined;
+  var instance = undefined;
 
-    uc.LobbyScene = function () {
-        if (instance)
-            return instance;
-        else
-            return instance = new _LobbyScene();
-    };
+  uc.LobbyScene = function () {
+    if (instance)
+      return instance;
+    else
+      return instance = new _LobbyScene();
+  };
 
-    var _LobbyScene = uc.BaseScene.extend({
-        ctor: function () {
-            this._super();
-        },
+  var _LobbyScene = uc.BaseScene.extend({
+    ctor: function () {
+      this._super();
+    },
 
-        onEnter: function () {
-            this._super();
+    onEnter: function () {
+      this._super();
 
-            var lobbyLayer = new uc.Lobby.MainLayer();
-            this.mainContent.addChild(lobbyLayer);
-        },
-    });
+      var lobbyLayer = new uc.Lobby.MainLayer();
+      this.mainContent.addChild(lobbyLayer);
+    },
+    getMainContentSize: function () {
+      return this.mainContent.getContentSize();
+    }
+  });
 
 }.call(this));
 

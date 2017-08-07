@@ -1,6 +1,7 @@
 
 (function () {
   var root = this;
+  var fonts = uc.fonts;
 
   var CoCaro = uc.Caro;
 
@@ -36,7 +37,7 @@
       this.tick.setPosition(0, -120);
       this.tick.setVisible(false);
 
-      this.name = new cc.LabelTTF("Phuhihi", fontArialB.fontName, 20);
+      this.name = new cc.LabelTTF("Phuhihi", fonts.fontArialB.fontName, 20);
       this.addChild(this.name);
       this.name.setPosition(0, 130);
       this.name.enableStroke({r: 0, g: 0, b: 0}, 1.5);
@@ -50,7 +51,7 @@
       this.addChild(this.chip);
       this.chip.setPosition(coinBg.getPositionX() - coinBg.getContentSize().width / 2 + this.chip.getContentSize().width / 3, coinBg.getPositionY());
 
-      this.cash = new cc.LabelTTF("1.000.000", fontArialB.fontName, 20);
+      this.cash = new cc.LabelTTF("1.000.000", fonts.fontArialB.fontName, 20);
       this.addChild(this.cash);
       this.cash.setPosition(13, -53);
       this.cash.enableStroke({r: 0, g: 0, b: 0}, 1.5);
@@ -94,7 +95,7 @@
       this.addChild(this.clock);
 
       this.timer = 20;
-      this.lblTimer = new cc.LabelTTF(this.timer, fontArialB.fontName, 50);
+      this.lblTimer = new cc.LabelTTF(this.timer, fonts.fontArialB.fontName, 50);
       this.lblTimer.setColor({r: 18, g: 32, b: 68});
       this.lblTimer.setPosition(0, 4);
       this.clock.addChild(this.lblTimer);

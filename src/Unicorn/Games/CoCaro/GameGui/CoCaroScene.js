@@ -2,6 +2,8 @@
 (function () {
   var root = this;
 
+  var fonts = uc.fonts;
+
   var CoCaro = uc.Caro;
 
   CoCaro.CoCaroScene = uc.BaseLayer.extend({
@@ -21,6 +23,7 @@
     },
 
     customizeGUI: function() {
+      var GameScene = uc.LobbyScene();
       var size = GameScene.getMainContentSize();
 
       var touchBtn = new ccui.Button("res/GameCo/Caro/background.png");
@@ -71,7 +74,7 @@
       var bgInfo = new cc.Sprite("res/GameCo/Caro/bg_info.png");
       infoNode.addChild(bgInfo);
 
-      this.lblTableName = new cc.LabelTTF("tenban", fontArialB.fontName, 20);
+      this.lblTableName = new cc.LabelTTF("tenban", fonts.fontArialB.fontName, 20);
       infoNode.addChild(this.lblTableName);
       this.lblTableName.setPosition(0, 25);
       this.lblTableName.setColor({r: 107, g: 60, b: 3});
@@ -84,7 +87,7 @@
       infoNode.addChild(this.chip);
       this.chip.setPosition(5 - bgInfo.getContentSize().width / 2 + this.chip.getContentSize().width / 2, -9);
 
-      this.lblMoney = new cc.LabelTTF("1.000.000", fontArialB.fontName, 22);
+      this.lblMoney = new cc.LabelTTF("1.000.000", fonts.fontArialB.fontName, 22);
       infoNode.addChild(this.lblMoney);
       this.lblMoney.setPosition(14, -9);
       this.lblMoney.enableStroke({r: 0, g: 0, b: 0}, 1.5);
@@ -152,7 +155,7 @@
       this.wait = new cc.Scale9Sprite("res/common/9patch.png");
       this.addChild(this.wait);
       this.wait.setPosition(size.width / 2, size.height * 0.6);
-      var lblWait = new cc.LabelTTF("Vui lòng chờ người khác vào chơi", fontArialB.fontName, 25);
+      var lblWait = new cc.LabelTTF("Vui lòng chờ người khác vào chơi", fonts.fontArialB.fontName, 25);
       this.wait.addChild(lblWait);
       this.wait.setContentSize(lblWait.getContentSize().width + 20, lblWait.getContentSize().height + 20);
       lblWait.setPosition(this.wait.getContentSize().width / 2, this.wait.getContentSize().height / 2);

@@ -60,6 +60,7 @@
             this.setContentSize(cc.winSize);
             this.setAnchorPoint(cc.p(.5, .5));
             this.customizeGUI();
+            this.listenAdapter && this.listenAdapter();
         },
 
         initWithJsonFile: function (json) {

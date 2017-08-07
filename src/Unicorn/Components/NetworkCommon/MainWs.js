@@ -19,7 +19,6 @@
         },
         onReceived: function (data) {
             var cmdReceived = new uc.Network.CmdReceivedCommon(data);
-            console.log("cmdReceived", cmdReceived);
             uc.adapterManager.emit("cmd", cmdReceived);
         },
         onError: function () {

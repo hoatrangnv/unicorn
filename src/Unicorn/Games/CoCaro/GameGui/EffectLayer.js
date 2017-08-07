@@ -18,6 +18,8 @@
     },
 
     createEffect: function() {
+      var GameScene = uc.LobbyScene();
+
       this.effectNode = new cc.Node();
       this.bg = new cc.Sprite("res/GameCo/Caro/Effect/Glow.png");
       this.effectNode.addChild(this.bg);

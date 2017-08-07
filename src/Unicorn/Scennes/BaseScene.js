@@ -48,8 +48,10 @@
 
         initMainContentLayers: function () {
             var mainContent = this.mainContent;
+            var _self = this;
             mainContentLayers.forEach(function (item, index) {
                 var child = new cc.Layer();
+                _self[item] = child;
                 child.retain();
                 child.setName(item);
                 mainContent.addChild(child, index);
