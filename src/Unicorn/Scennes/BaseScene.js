@@ -12,6 +12,7 @@
         onEnter: function () {
             this._super();
             this.resizeScene();
+            this.listenAdapter &&  this.listenAdapter();
         },
 
         addMainLayers: function () {

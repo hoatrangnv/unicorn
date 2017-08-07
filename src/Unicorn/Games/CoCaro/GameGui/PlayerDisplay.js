@@ -2,6 +2,7 @@
 (function () {
   var root = this;
   var fonts = uc.fonts;
+  var MONEY_VIN = uc.commonConfigs.MONEY_VIN;
 
   var CoCaro = uc.Caro;
 
@@ -42,7 +43,7 @@
       this.name.setPosition(0, 130);
       this.name.enableStroke({r: 0, g: 0, b: 0}, 1.5);
 
-      if (CoCaro.gameLogic.moneyType == MONEY_VIN) {
+      if (this.gameScene.gameLogic.moneyType == MONEY_VIN) {
         this.chip = new cc.Sprite("res/GameCo/Caro/chipVin.png");
       } else {
         this.chip = new cc.Sprite("res/GameCo/Caro/chipXu.png");
@@ -226,7 +227,7 @@
       var pos = this.avatar.getPosition();
 
       this.updateMoney = function(sender){
-        this.cash.setString(StringUtility.standartNumber(CoCaro.gameLogic.players[this.index].info["money"]));
+        this.cash.setString(StringUtility.standartNumber(this.gameScene.gameLogic.players[this.index].info["money"]));
       };
 
       pos = this.convertToWorldSpaceAR(pos);

@@ -120,6 +120,11 @@
     "src/Unicorn/Components/GuiCommon/ThongTinHuVangIcon.js",
 
     "src/Unicorn/Games/CoCaro/Constants.js",
+    "src/Unicorn/Games/CoCaro/Network/sendCmds.js",
+    "src/Unicorn/Games/CoCaro/Network/receivedCmds.js",
+
+    "src/Unicorn/Games/CoCaro/adapter.js",
+
     "src/Unicorn/Games/CoCaro/GameGui/CoCaroScene.js",
     "src/Unicorn/Games/CoCaro/GameGui/EffectLayer.js",
     "src/Unicorn/Games/CoCaro/GameGui/NodeStart.js",

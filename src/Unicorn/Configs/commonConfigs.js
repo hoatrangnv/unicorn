@@ -2,6 +2,8 @@
     var root = this;
 
     var configs = uc.commonConfigs = {};
+    configs.MONEY_VIN = 1;
+    configs.MONEY_XU = 0;
 
     configs.res_CardGame_CommonResource_BanChoi = "res/CardGame/CommonResource/BanChoi";
     configs.res_CardGame_CommonResource_EndGame = "res/CardGame/CommonResource/EndGame";

@@ -13,7 +13,7 @@
                 this._super();
             },
             listenAdapter: function () {
-              lobbyAdapter.on("openGame", this.openGame.bind(this));
+
             },
             setBackground : function () {
                 this.setPosition(cc.p(0, 0));
@@ -33,14 +33,6 @@
                 // this.initPContent();
                 // this.initGameInfo();
             },
-            openGame : function (gameName) {
-              console.log("gameName",gameName);
-
-              var coCaroScene = new uc.Caro.CoCaroScene();
-              var lobbyScene = uc.LobbyScene();
-              console.log(lobbyScene);
-              lobbyScene.GAME_GUI.addChild(coCaroScene);
-            }
         }
     );
 
