@@ -11,6 +11,7 @@
     register: "4",
     forgotPassword: "5"
   };
+
   var lobbyControllerId = uc.adapterManager.adapters.lobby;
   var lobbySendCmds = uc.Lobby.sendCmds;
   var lobbyReceivedCmds = uc.Lobby.receivedCmds;
@@ -28,6 +29,11 @@
       },
       listenAdapter: function () {
         lobbyAdapter.listenCmd(lobbyReceivedCmds.login, this.loginSuccess, this.loginError);
+      },
+
+      onExit: function () {
+          this._super();
+          lobbyAdapter.unListenCmd(lobbyReceivedCmds.login, this.loginSuccess, this.loginError);
       },
 
       customizeGUI: function () {
