@@ -29,13 +29,13 @@
         return _adapters.find(function (item, index) {
             return name == item.name;
         });
-    }
+    };
 
     adapter.getAdapterById = function (ID) {
         return _adapters.find(function (item, index) {
             return ID == item.controllerId;
         });
-    }
+    };
 
 
 }.call(this));

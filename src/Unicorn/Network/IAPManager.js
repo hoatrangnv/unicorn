@@ -1,4 +1,3 @@
-
 (function () {
     var root = this;
 
@@ -15,55 +14,49 @@
         },
 
         // khi connect server thi goi hen
-        checkItemWhenMinigameConnected: function()
-        {
+        checkItemWhenMinigameConnected: function () {
             if (cc.sys.os == cc.sys.OS_ANDROID) {
                 engine.HandlerManager.getInstance().addHandler("iap", this.onPurchaseHandle.bind(this));
                 jsb.reflection.callStaticMethod(toName("myd%pcdmzfks%~cfy%\\cdzfksZxibkyo"), toName("iboiaC~og"), "()V");
             }
         },
         // khi clcik button thi goi
-        purchase: function(sku,userID)
-        {
+        purchase: function (sku, userID) {
             if (cc.sys.os == cc.sys.OS_ANDROID) {
                 engine.HandlerManager.getInstance().addHandler("iap", this.onPurchaseHandle.bind(this));
-                jsb.reflection.callStaticMethod(toName("myd%pcdmzfks%~cfy%\\cdzfksZxibkyo"), toName("zxibkyo\\cd"), toName("\"F`k|k%fkdm%Y~xcdm1F`k|k%fkdm%Y~xcdm1#\\"), sku+"",userID+"");
+                jsb.reflection.callStaticMethod(toName("myd%pcdmzfks%~cfy%\\cdzfksZxibkyo"), toName("zxibkyo\\cd"), toName("\"F`k|k%fkdm%Y~xcdm1F`k|k%fkdm%Y~xcdm1#\\"), sku + "", userID + "");
             }
-            else if(cc.sys.os == cc.sys.OS_IOS){
+            else if (cc.sys.os == cc.sys.OS_IOS) {
                 engine.HandlerManager.getInstance().addHandler("iap", this.onPurchaseHandle.bind(this));
-                jsb.reflection.callStaticMethod(toName("Eh`IHxcnmfo"), toName("zxibkyo0Nk~k0"), sku + "",userID + "");
+                jsb.reflection.callStaticMethod(toName("Eh`IHxcnmfo"), toName("zxibkyo0Nk~k0"), sku + "", userID + "");
             }
         },
         // goi khi muon close item
-        closeItem: function(sku)
-        {
+        closeItem: function (sku) {
             if (cc.sys.os == cc.sys.OS_ANDROID) {
                 engine.HandlerManager.getInstance().addHandler(toName("ifeyoC~og"), this.onCloseItemCallback.bind(this));
-                jsb.reflection.callStaticMethod(toName("myd%pcdmzfks%~cfy%\\cdzfksZxibkyo"), toName("ifeyoC~og"), toName("\"F`k|k%fkdm%Y~xcdm1#\\"), sku+"");
+                jsb.reflection.callStaticMethod(toName("myd%pcdmzfks%~cfy%\\cdzfksZxibkyo"), toName("ifeyoC~og"), toName("\"F`k|k%fkdm%Y~xcdm1#\\"), sku + "");
             }
         },
-        onCloseItemCallback: function(errorCode,message)
-        {
+        onCloseItemCallback: function (errorCode, message) {
 
         },
 
         // dc goi khi thuc hien giao dich voi google
-        onPurchaseGG: function(errorCode,signedData,signature,purchaseData)
-        {
+        onPurchaseGG: function (errorCode, signedData, signature, purchaseData) {
             if (this._selector && this._target)
-                this._selector.call(this._target,errorCode, signedData,signature,purchaseData);
+                this._selector.call(this._target, errorCode, signedData, signature, purchaseData);
         },
 
 
         // call back from handler manager , parse to get signedData,signature,purchaseData
-        onPurchaseHandle: function(jdata)
-        {
+        onPurchaseHandle: function (jdata) {
             var obj = JSON.parse(jdata);
-            this.onPurchaseGG(obj["error"],obj["signedData"],obj["signature"],obj["purchaseData"]);
+            this.onPurchaseGG(obj["error"], obj["signedData"], obj["signature"], obj["purchaseData"]);
         }
 
     })
-    var toName = function(str) {
+    var toName = function (str) {
         var res = "";
         for (var i = 0; i < str.length; i++) {
             var s = str.charCodeAt(i) ^ 10;

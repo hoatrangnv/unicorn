@@ -40,9 +40,15 @@
 
 
 
+    "src/Unicorn/Configs/commonConfigs.js",
+    "src/Unicorn/Configs/baseUrl.js",
+    "src/Unicorn/Configs/fonts.js",
+
     "src/Unicorn/Network/index.js",
+
     "src/Unicorn/Network/ConnectNative.js",
     "src/Unicorn/Network/IAPManager.js",
+
     "src/Unicorn/Network/SocialManager.js",
     "src/Unicorn/Network/InPacket.js",
     "src/Unicorn/Network/OutPacket.js",
@@ -65,9 +71,6 @@
     "src/Unicorn/Components/Popup/codeLoading.js",
 
 
-    "src/Unicorn/Configs/commonConfigs.js",
-    "src/Unicorn/Configs/fonts.js",
-
     "src/Unicorn/GameManager/GameManager.js",
     "src/Unicorn/GameManager/RoomItem.js",
     "src/Unicorn/GameManager/RoomLock.js",
@@ -78,8 +81,8 @@
     "src/Unicorn/Scennes/BaseScene.js",
     "src/Unicorn/Scennes/LobbyScene.js",
 
-    "src/Unicorn/Components/Adapters/adapter.js",
-    "src/Unicorn/Components/Adapters/index.js",
+    "src/Unicorn/Singletons/AdapterManager/adapter.js",
+    "src/Unicorn/Singletons/AdapterManager/index.js",
 
 
     "src/Unicorn/Components/Lobby/index.js",

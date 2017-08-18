@@ -16,18 +16,14 @@
         },
 
         addMainLayers: function () {
+            this.sizeSceen = uc.BaseScene.SCREEN_SIZE;
+            this.positionCenter = uc.BaseScene.CENTER_POSITION;
+            this.positionContent  = uc.BaseScene.CONTENT_POSITION;
 
             if (cc.sys.isNative) {
-                this.sizeSceen = cc.size(1280, 720);
-                this.positionCenter = cc.p(640, 360);
-                this.positionContent = cc.p(640, 360);
                 this.imageBg = "res/Base/Lobby/GUI/mobile-lobby-bg.jpg";
             } else {
-                this.sizeSceen = cc.size(1920, 1080);
-                this.positionCenter = cc.p(960, 540);
-                this.positionContent = cc.p(960, 630);
                 this.imageBg = "res/Base/Lobby/GUI/lobby-bg.jpg";
-
             }
 
             this.bg = new cc.Sprite(this.imageBg);
@@ -44,6 +40,7 @@
             // mainContent.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
             // mainContent.setBackGroundColor(cc.color("#000000"));
             // mainContent.setBackGroundColorOpacity(125);
+
             this.addChild(mainContent);
         },
 
@@ -79,10 +76,6 @@
 
         },
 
-        // addChild: function (child) {
-        //   cc.Scene.prototype.addChild.call(this, child);
-        // },
-
         addGameGUI: function (child) {
             this.removeGameGui();
             child.setTag(11);
@@ -112,6 +105,14 @@
             return MainContent.getContentSize();
         }
     });
+
+    if (cc.sys.isNative) {
+        uc.BaseScene.SCREEN_SIZE = cc.size(1280, 720);
+        uc.BaseScene.CENTER_POSITION = uc.BaseScene.CONTENT_POSITION = cc.p(640, 360);
+    } else {
+        uc.BaseScene.SCREEN_SIZE = cc.size(1920, 1080);
+        uc.BaseScene.CENTER_POSITION = uc.BaseScene.CONTENT_POSITION = cc.p(960, 540);
+    }
 
 }.call(this));
 

@@ -1,47 +1,43 @@
 var LOADING_TAG = 21112;
 
 var SceneMgr = cc.Class.extend({
-    ctor: function(){
+    ctor: function () {
 
     },
 
-    getRunningScene: function(){
+    getRunningScene: function () {
         var currentScene = cc.director.getRunningScene();
-        if(currentScene instanceof cc.TransitionScene)
-        {
+        if (currentScene instanceof cc.TransitionScene) {
             currentScene = cc.director.getRunningScene().getInScene();
         }
         return currentScene;
     },
 
-    replaceWithScene: function(scene,transition){
-        if(!transition)
-        {
-            cc.director.runScene(new cc.TransitionFade(.35,scene));
+    replaceWithScene: function (scene, transition) {
+        if (!transition) {
+            cc.director.runScene(new cc.TransitionFade(.35, scene));
         }
-        else
-        {
+        else {
             cc.director.runScene(transition);
         }
         //gameSound.screenAppear();
     },
 
-    showYesNoDialog: function(title,message,target,selector,parent){
+    showYesNoDialog: function (title, message, target, selector, parent) {
         this.dialog = new Dialog();
-        if(parent)
-        {
+        if (parent) {
             parent.addChild(this.dialog);
         }
         else
             this.getRunningScene().getMainLayer().addChild(this.dialog);
         this.dialog.setLocalZOrder(Dialog.ZODER);
         this.dialog.setTag(Dialog.TAG);
-        this.dialog.set(title,message,target,selector);
+        this.dialog.set(title, message, target, selector);
 
         return this.dialog;
     },
 
-    addLoading: function(text,fog){
+    addLoading: function (text, fog) {
         // cc.log("addLoading 0");
         var loading = MainContent.getChildByTag(parseInt(parseInt(LOADING_TAG)));
         // cc.log("addLoading 1");
@@ -52,17 +48,17 @@ var SceneMgr = cc.Class.extend({
         //    loading.removeFromParent();
         //}
 
-        if(this.loading){
+        if (this.loading) {
             this.loading.stopAllActions();
             this.loading.removeFromParent();
             // cc.log("addLoading 3");
         }
         // cc.log("addLoading 4");
-        if(fog === "undefined")
+        if (fog === "undefined")
             fog = true;
         var size = MainContent.getContentSize();
         // cc.log("addLoading 5");
-        var loading = new Loading(text,fog,size);
+        var loading = new Loading(text, fog, size);
         this.loading = loading;
         loading.setLocalZOrder(10000);
         MainContent.addChild(loading);
@@ -72,7 +68,7 @@ var SceneMgr = cc.Class.extend({
 
     },
 
-    clearLoading: function(){
+    clearLoading: function () {
 
         //var loading = MainContent.getChildByTag(parseInt(LOADING_TAG));
         //if(loading)
@@ -81,64 +77,56 @@ var SceneMgr = cc.Class.extend({
         //    loading.removeFromParent();
         //}
         // cc.log("clear loading1");
-        if(this.loading)
-        {
+        if (this.loading) {
             //loading.remove();
             this.loading.removeFromParent();
             this.loading = null;
         }
     },
 
-    takeScreenShot: function() {
-        if(jsb.fileUtils.isFileExist(jsb.fileUtils.getWritablePath() + "screentshot.png"))
-        {
+    takeScreenShot: function () {
+        if (jsb.fileUtils.isFileExist(jsb.fileUtils.getWritablePath() + "screentshot.png")) {
             jsb.fileUtils.removeFile(jsb.fileUtils.getWritablePath() + "screentshot.png");
         }
-        var text = new cc.RenderTexture(cc.winSize.width,cc.winSize.height);
-        text.setPosition(cc.winSize.width/2,cc.winSize.height/2);
+        var text = new cc.RenderTexture(cc.winSize.width, cc.winSize.height);
+        text.setPosition(cc.winSize.width / 2, cc.winSize.height / 2);
         text.begin();
         sceneMgr.getRunningScene().visit();
         text.end();
 
-        var ret = text.saveToFile("screentshot.png",1);
+        var ret = text.saveToFile("screentshot.png", 1);
 
         var path = "";
-        if(ret)
-        {
+        if (ret) {
             gameSound.playChupanh();
             path = jsb.fileUtils.getWritablePath() + "screentshot.png";
         }
         return path;
     },
 
-    updateCurrentGUI: function(data) {
+    updateCurrentGUI: function (data) {
         var gui = this.getRunningScene().getMainLayer();
         gui.onUpdateGUI(data);
     },
 
     // hungdd's function
-    openWithScene : function (layer,callback,direct) {
+    openWithScene: function (layer, callback, direct) {
         var curLayer = null;
-        if(direct === undefined)
-        {
+        if (direct === undefined) {
             direct = false;
         }
-        if(this._isWaitingCallBack && !direct)
-        {
+        if (this._isWaitingCallBack && !direct) {
             curLayer = new window[this._waitingScene];
 
             this._isWaitingCallBack = false;
             this._waitingScene = "";
         }
-        else
-        {
+        else {
             curLayer = layer;
         }
 
-        if(callback !== undefined)
-        {
-            if(callback != "" || callback != null)
-            {
+        if (callback !== undefined) {
+            if (callback != "" || callback != null) {
                 this._isWaitingCallBack = true;
                 this._waitingScene = callback;
             }
@@ -147,25 +135,23 @@ var SceneMgr = cc.Class.extend({
         var scene = new BaseScene();
         scene.addChild(curLayer);
 
-        cc.director.runScene(new cc.TransitionFade(BaseLayer.TIME_APPEAR_GUI,scene));
+        cc.director.runScene(new cc.TransitionFade(BaseLayer.TIME_APPEAR_GUI, scene));
     },
 
-    showOkCancelDialog: function(message,target,selector){
-        if(this.dialog != null)
-        {
+    showOkCancelDialog: function (message, target, selector) {
+        if (this.dialog != null) {
             //this.dialog.removeFromParent();
         }
         this.dialog = new Dialog();
         this.getRunningScene().getMainLayer().addChild(this.dialog);
         this.dialog.setLocalZOrder(Dialog.ZODER);
         this.dialog.setTag(Dialog.TAG);
-        this.dialog.setOkCancel(message,target,selector);
+        this.dialog.setOkCancel(message, target, selector);
 
     },
 
-    showOKDialog: function(message){
-        if(this.dialog != null)
-        {
+    showOKDialog: function (message) {
+        if (this.dialog != null) {
             this.dialog.removeFromParent();
         }
         this.dialog = new Dialog();
@@ -175,70 +161,64 @@ var SceneMgr = cc.Class.extend({
         this.dialog.setOKNotify(message);
     },
 
-    showChangeGoldDialog : function (message,target,selector) {
-        if(this.dialog != null)
-        {
+    showChangeGoldDialog: function (message, target, selector) {
+        if (this.dialog != null) {
             //this.dialog.removeFromParent();
         }
         this.dialog = new Dialog();
         this.getRunningScene().getMainLayer().addChild(this.dialog);
         this.dialog.setLocalZOrder(Dialog.ZODER);
         this.dialog.setTag(Dialog.TAG);
-        this.dialog.setChangeGold(message,target,selector);
+        this.dialog.setChangeGold(message, target, selector);
     },
 
-    showAddGDialog : function (message,target,selector) {
-        if(this.dialog != null)
-        {
+    showAddGDialog: function (message, target, selector) {
+        if (this.dialog != null) {
             //this.dialog.removeFromParent();
         }
         this.dialog = new Dialog();
         this.getRunningScene().getMainLayer().addChild(this.dialog);
         this.dialog.setLocalZOrder(Dialog.ZODER);
         this.dialog.setTag(Dialog.TAG);
-        this.dialog.setAddG(message,target,selector);
+        this.dialog.setAddG(message, target, selector);
     },
 
-    showSupportBean : function (bean, numSupport) {
+    showSupportBean: function (bean, numSupport) {
         var sp = new SupportBeanGUI();
-        this.getRunningScene().getMainLayer().addChild(sp,Dialog.SUPPORT_ZODER,Dialog.SUPPORT_TAG);
-        sp.showSupportBean(bean,numSupport);
+        this.getRunningScene().getMainLayer().addChild(sp, Dialog.SUPPORT_ZODER, Dialog.SUPPORT_TAG);
+        sp.showSupportBean(bean, numSupport);
     },
 
-    showSupportStartup : function () {
+    showSupportStartup: function () {
         var curLayer = this.getRunningScene().getMainLayer();
         // cc.log(curLayer._id);
-        if(curLayer instanceof LobbyScene)
-        {
+        if (curLayer instanceof LobbyScene) {
             var sp = new SupportBeanGUI();
-            curLayer.addChild(sp,Dialog.SUPPORT_ZODER,Dialog.SUPPORT_TAG);
+            curLayer.addChild(sp, Dialog.SUPPORT_ZODER, Dialog.SUPPORT_TAG);
             sp.showSupportStartup();
         }
     },
 
-    checkSupportBean : function (waitSupport) {
-        if (gamedata.userData.bean < gamedata.gameConfig.chanelConfig[0].minGold)
-        {
+    checkSupportBean: function (waitSupport) {
+        if (gamedata.userData.bean < gamedata.gameConfig.chanelConfig[0].minGold) {
             GameClient.getInstance().sendPacket(new CmdSendGetSupportBean());
         }
 
-        if(typeof  waitSupport != 'undefined')
-        {
+        if (typeof  waitSupport != 'undefined') {
             gamedata.showSupportTime = waitSupport;
         }
     },
-    shakeScreen: function(){
+    shakeScreen: function () {
         //this.getRunningScene().getMainLayer().runAction(       engine.CCShake.actionWithDuration(.55,12));
         this.getRunningScene().getMainLayer().runAction(cc.show());
     }
-
 
 
 });
 
 var Loading = cc.Layer.extend({
 
-    ctor: function (text, fog , size) {
+    ctor: function (text, fog, size) {
         // cc.log("ctor1");
         this._super();
         this._layerColor = null;
@@ -279,8 +259,7 @@ var Loading = cc.Layer.extend({
             this.test.setPositionX(0)
             this.addChild(this.test);
 
-            if(!cc.sys.isNative)
-            {
+            if (!cc.sys.isNative) {
                 this.test.setVisible(false);
             }
             this.test.runAction(cc.repeatForever(cc.sequence(cc.delayTime(i * .125), engine.CircleMove.create(2, this.size.width / 2), cc.delayTime((5 - i) * .125))));
@@ -342,9 +321,8 @@ var Loading = cc.Layer.extend({
 SceneMgr.sharedInstance = null;
 SceneMgr.firstInit = true;
 
-SceneMgr.getInstance = function(){
-    if(SceneMgr.firstInit)
-    {
+SceneMgr.getInstance = function () {
+    if (SceneMgr.firstInit) {
         SceneMgr.sharedInstance = new SceneMgr();
         SceneMgr.firstInit = false;
     }

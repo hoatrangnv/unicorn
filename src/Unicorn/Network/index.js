@@ -3,32 +3,10 @@
  */
 (function () {
 
-    var MODE_DEPLOY = {
-        LOCAL: {
-            HOST: "http://vinplay.com",
-            BASE_URL: "http://api.vinplay.com:8081/api?",
-            MAIN_WS: {
-                HOST : "27.118.22.53",
-                PORT : 8900,
-                ISSSL : false
-            }
-        },
-        TEST: {
-            HOST: "http://210.211.101.230",
-            BASE_URL: "http://210.211.101.230:8081/api?",
-            MAIN_WS: {
-                HOST : "27.118.22.53",
-                PORT : 8900,
-                ISSSL : false
-            }
-        },
-        LIVE: {}
-    }
-
 
     var Network = this.uc.Network = {};
-
-    Network.configs =  MODE_DEPLOY.TEST;
+    console.log("uc.MODE_DEPLOY",uc.MODE_DEPLOY);
+    Network.configs =  uc.MODE_DEPLOY;
     Network.dataTypes = {
         BYTE : 1,
         SHORT : 2,
@@ -37,6 +15,6 @@
         LONG : 5,
         DOUBLE : 6,
         STRING : 7
-    }
+    };
 
 }.call(this))

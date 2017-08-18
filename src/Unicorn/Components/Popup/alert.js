@@ -6,51 +6,14 @@
   var popupY = null;
   var popupAppear = null;
 
-  uc.Popup = {};
-  var BaseScene = uc.BaseScene;
 
   var codeLoading = uc.codeLoading = uc.BaseLayer.extend({
       ctor: function () {
-        this.pn_loading = null;
-        this.pn_message = null;
-        this.bg_shadow = null;
-        this.sp_point1 = null;
-        this.sp_point2 = null;
-        this.sp_point3 = null;
-        this.sp_point4 = null;
-        this.sp_point5 = null;
-        this.bg_message = null;
-        this.bg_title = null;
-        this.txt_content = null;
-        this.pn_message_show = null;
-        this.pn_message_confirm = null;
-        //this.btn_mess_show_popup = null; this.btn_cancel_popup = null; this.btn_dong_y_popup = null;
-        this.pn_message_small = null;
-        this.btn_close_pn_alert = null;
-        this.bg_alert = null;
-        this.bg_title_alert = null;
-        this.txt_content_alert_lobby = null;
-        this.shadow_popup = null;
-        this.txt_title = null;
-
-        this.pn_message_big = null;
-        this.btn_close_ms_big = null;
-        this.bg_big_alert = null;
-        this.bg_title_alert = null;
-        this.txt_content_big = null;
-
-        this.txt_note_daily = null;
-        this.txt_canh_bao = null;
-        this.txt_money = null;
-
-        this.pn_banner_tet = null;
-        this.btn_close_banner_tet = null;
-        this.btn_banner_tet = null;
-
         this._super("codeLoading");
-        this.initWithBinaryFile("res/loadingscene.json");
+        // this.initWithBinaryFile("res/loadingscene.json");
         return true;
       },
+
       customizeGUI: function () {
         this.shadow_popup = this._layout.getChildByName("shadow_popup");
         this.shadow_popup.setTexture("res/Lobby/Shadow.png");
@@ -358,31 +321,6 @@
     popup.sp_point4.stopAllActions();
     popup.sp_point5.stopAllActions();
     popup.pn_loading.setVisible(false);
-  };
-
-
-  uc.Popup.openPopUp = function () {
-    if (popup === null) {
-      popup = new uc.codeLoading();
-      popupX = popup.getPosition().x;
-      popupY = popup.getPosition().y;
-      var curScene = uc.SceneMgr.getInstance().getRunningScene();
-      curScene.addGUI(popup, BaseScene.INDEX_POP_UP_GUI, 0);
-    }
-    else {
-      popup.setVisible(true);
-    }
-    popupAppear = true;
-
-  };
-  uc.Popup.closePopUp = function () {
-    if (popup === null) {
-      return;
-    }
-    if (popupAppear) {
-      popup.setVisible(false);
-      popupAppear = false;
-    }
   };
 
 }.call(this));

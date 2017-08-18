@@ -4,15 +4,9 @@
     var BaseLayer = uc.BaseLayer = cc.Layer.extend({
 
         ctor: function (id) {
-            // this._super();
-
-            cc.Layer.prototype.ctor.call(this);
-
-            this.curFram = 0;
-
+            this._super();
             id && (this._id = id);
             this._layout = null;
-            this._layoutPath = "";
             this._scale = -1;
 
             this._showHideAnimate = false;
@@ -55,7 +49,6 @@
         },
 
         onEnter: function () {
-            this.curFram += 1;
             cc.Layer.prototype.onEnter.call(this);
             this.setContentSize(cc.winSize);
             this.setAnchorPoint(cc.p(.5, .5));

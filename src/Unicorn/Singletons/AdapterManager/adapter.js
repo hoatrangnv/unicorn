@@ -14,7 +14,7 @@
         this.on("_cmd",function (inPacket) {
             this.emit(inPacket._cmdId, inPacket);
         });
-    }
+    };
 
     p.sendMessage = function (outPacket) {
         uc.adapterManager.emit("sendCmd", outPacket);
@@ -30,7 +30,7 @@
               callbackError && callbackError(error);
             }
         });
-    }
+    };
 
     p.unListenCmd = function (cmd,callbackSuccess, callbackError) {
         this.on(cmd.cmdId,function (data) {
@@ -42,8 +42,6 @@
                 callbackError && callbackError(error);
             }
         });
-    }
-
-
+    };
 
 }.call(this));
