@@ -32,9 +32,10 @@
         },
         putData: function () {
             var _self = this;
+            var dataToPut = arguments;
             this._dataTypes.forEach(function (item, index) {
                 var dataType = item.type;
-                var field = arguments[index];
+                var field = dataToPut[index];
                 var fn = putFunctions[dataType];
                 fn.call(_self, field);
             });
