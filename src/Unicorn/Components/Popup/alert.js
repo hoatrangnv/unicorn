@@ -10,95 +10,31 @@
   var codeLoading = uc.codeLoading = uc.BaseLayer.extend({
       ctor: function () {
         this._super("codeLoading");
-        // this.initWithBinaryFile("res/loadingscene.json");
+        this.initWithBinaryFile("res/loadingscene.json");
         return true;
       },
 
       customizeGUI: function () {
-        this.shadow_popup = this._layout.getChildByName("shadow_popup");
-        this.shadow_popup.setTexture("res/Lobby/Shadow.png");
-        this.shadow_popup.setVisible(false);
-        this.pn_loading = this._layout.getChildByName("pn_loading");
-        this.pn_loading.setVisible(false);
-        this.pn_message = this._layout.getChildByName("pn_message");
-        this.pn_message.setScale(0);
-        this.pn_message.setVisible(false);
-        this.bg_shadow = this.pn_loading.getChildByName("bg_shadow");
-        this.bg_shadow.setTexture("res/Lobby/Shadow.png");
-        this.sp_point1 = this.pn_loading.getChildByName("sp_point1");
-        this.sp_point2 = this.pn_loading.getChildByName("sp_point2");
-        this.sp_point3 = this.pn_loading.getChildByName("sp_point3");
-        this.sp_point4 = this.pn_loading.getChildByName("sp_point4");
-        this.sp_point5 = this.pn_loading.getChildByName("sp_point5");
-
-        this.bg_message = this.pn_message.getChildByName("bg_message");
-        this.bg_message.setTexture("res/ResourceMenuTab/Mail/bgtab_mail_s.png");
-        this.bg_title = this.pn_message.getChildByName("bg_title");
-        this.bg_title.setTexture("res/ResourceMenuTab/Mail/Title.png");
-        this.pn_message_show = this.getControl("pn_message_show", this.pn_message);
-        this.pn_message_confirm = this.getControl("pn_message_confirm", this.pn_message);
-        this.pn_message_confirm.setVisible(false);
-        this.txt_content = this.getControl("txt_content", this.pn_message);
-        this.txt_note_daily = this.getControl("txt_note_daily", this.pn_message);
-        this.txt_note_daily.y = this.txt_content.y - 45;
-        this.txt_note_daily.setVisible(false);
-        this.txt_canh_bao = this.getControl("txt_canh_bao", this.pn_message);
-        this.txt_canh_bao.setVisible(false);
-
-        this.txt_money = this.getControl("txt_money", this.pn_message);
-        this.txt_money.y = this.txt_content.y - 93;
-        this.txt_money.x = this.txt_content.x - 15;
-        this.txt_money.setColor(cc.color("#E702FE"));
-        this.txt_money.setVisible(false);
-
-        this.txt_title = this.getControl("txt_title", this.pn_message);
-
-        this.pn_message_big = this._layout.getChildByName("pn_message_big");
-        this.btn_close_ms_big = this.customButton("btn_close_ms_big", codeLoading.BTN_CLOSE_BIG_MESSAGE, this.pn_message_big);
-        this.bg_big_alert = this.pn_message_big.getChildByName("bg_big_alert");
-        this.bg_title_alert = this.pn_message_big.getChildByName("bg_title_alert");
-        this.txt_content_big = this.getControl("txt_content_big", this.pn_message_big);
-        this.bg_big_alert.setTexture("res/ResourceMenuTab/Mail/bgtab_mail_s.png");
-        this.bg_title_alert.setTexture("res/ResourceMenuTab/Mail/Title.png");
-        this.pn_message_big.setScale(0);
-        this.pn_message_big.setVisible(false);
 
         // panel alert
         this.pn_message_small = this._layout.getChildByName("pn_message_small");
-        this.bg_alert = this.pn_message_small.getChildByName("bg_alert");
-        this.bg_alert.setTexture("res/ResourceMenuTab/Mail/bgtab_mail_small.png");
-        this.bg_title_alert = this.pn_message_small.getChildByName("bg_title_alert");
-        this.bg_title_alert.setTexture("res/ResourceMenuTab/Mail/Title.png");
-        this.btn_close_pn_alert = this.customButton("btn_close_pn_alert", codeLoading.BTN_CLOSE_PANEL_ALERT, this.pn_message_small);
-        this.txt_content_alert_lobby = this.getControl("txt_content_alert_lobby", this.pn_message_small);
+        this.bg_alert = this.pn_message_small.getChildByName("bg_alert");  this.bg_alert.setTexture("res/ResourceMenuTab/Mail/bgtab_mail_small.png");
+        this.bg_title_alert = this.pn_message_small.getChildByName("bg_title_alert");  this.bg_title_alert.setTexture("res/ResourceMenuTab/Mail/Title.png");
+        this.btn_close_pn_alert = this.customButton("btn_close_pn_alert",codeLoading.BTN_CLOSE_PANEL_ALERT, this.pn_message_small);
+        this.txt_content_alert_lobby = this.getControl("txt_content_alert_lobby",this.pn_message_small);
         this.pn_message_small.setScale(0);
         this.pn_message_small.setVisible(false);
         this.callbackOK = null;
 
         this.pn_banner_tet = this._layout.getChildByName("pn_banner_tet");
-        this.btn_close_banner_tet = this.customButton("btn_close_banner_tet", codeLoading.BTN_CLOSE_BANNER_TET, this.pn_banner_tet);
-        this.btn_banner_tet = this.customButton("btn_banner_tet", codeLoading.BTN_GOTO_BANNER_TET, this.pn_banner_tet);
+        this.btn_close_banner_tet = this.customButton("btn_close_banner_tet",codeLoading.BTN_CLOSE_BANNER_TET, this.pn_banner_tet);
+        this.btn_banner_tet = this.customButton("btn_banner_tet",codeLoading.BTN_GOTO_BANNER_TET, this.pn_banner_tet);
         this.pn_banner_tet.setScale(0);
         this.pn_banner_tet.setVisible(false);
         //showLoading();
       },
       onButtonRelease: function (button, id) {
         switch (id) {
-          case codeLoading.BTN_CLOSE_BANNER_TET:
-            this.pn_banner_tet.runAction(cc.scaleTo(0.2, 0));
-            this.pn_banner_tet.setVisible(false);
-            //lobby.tf_user_name_tab.setVisible(true);
-            //lobby.tf_pass_tab.setVisible(true);
-            break;
-          case codeLoading.BTN_GOTO_BANNER_TET:
-            if (!cc.sys.isNative) {
-              this.pn_banner_tet.runAction(cc.scaleTo(0.2, 0));
-              this.pn_banner_tet.setVisible(false);
-              //lobby.tf_user_name_tab.setVisible(true);
-              //lobby.tf_pass_tab.setVisible(true);
-              window.open("https://www.facebook.com/gamebaivinplay/photos/a.419325095108790.1073741828.419271841780782/419323438442289/?type=3&theater");
-            }
-            break;
           case codeLoading.BTN_CLOSE_PANEL_ALERT:
             this.pn_message_small.runAction(cc.scaleTo(0.2, 0));
             popup.shadow_popup.setVisible(false);
@@ -111,11 +47,6 @@
               //lobby.tf_pass_tab.setVisible(true);
               lobby.AlertLogin = false;
             }
-            break;
-          case codeLoading.BTN_CLOSE_BIG_MESSAGE:
-            this.pn_message_big.setVisible(false);
-            this.pn_message_big.runAction(cc.scaleTo(0, 0));
-            this.shadow_popup.setVisible(false);
             break;
         }
       },
@@ -130,36 +61,6 @@
         this.pn_message_big.setVisible(true);
         this.shadow_popup.setVisible(true);
         this.pn_message_big.runAction(cc.scaleTo(0.2, 1));
-      },
-      scalePoint1: function () {
-        popup.sp_point1.runAction(cc.sequence(cc.scaleTo(0.8, 0), cc.callFunc(popup.scalePoint_Back1, this)));
-      },
-      scalePoint_Back1: function () {
-        popup.sp_point1.runAction(cc.sequence(cc.scaleTo(0, 1), cc.callFunc(popup.scalePoint1, this)));
-      },
-      scalePoint2: function () {
-        popup.sp_point2.runAction(cc.sequence(cc.scaleTo(0.8, 0), cc.callFunc(popup.scalePoint_Back2, this)));
-      },
-      scalePoint_Back2: function () {
-        popup.sp_point2.runAction(cc.sequence(cc.scaleTo(0, 1), cc.callFunc(popup.scalePoint2, this)));
-      },
-      scalePoint3: function () {
-        popup.sp_point3.runAction(cc.sequence(cc.scaleTo(0.8, 0), cc.callFunc(popup.scalePoint_Back3, this)));
-      },
-      scalePoint_Back3: function () {
-        popup.sp_point3.runAction(cc.sequence(cc.scaleTo(0, 1), cc.callFunc(popup.scalePoint3, this)));
-      },
-      scalePoint4: function () {
-        popup.sp_point4.runAction(cc.sequence(cc.scaleTo(0.8, 0), cc.callFunc(popup.scalePoint_Back4, this)));
-      },
-      scalePoint_Back4: function () {
-        popup.sp_point4.runAction(cc.sequence(cc.scaleTo(0, 1), cc.callFunc(popup.scalePoint4, this)));
-      },
-      scalePoint5: function () {
-        popup.sp_point5.runAction(cc.sequence(cc.scaleTo(0.8, 0), cc.callFunc(popup.scalePoint_Back5, this)));
-      },
-      scalePoint_Back5: function () {
-        popup.sp_point5.runAction(cc.sequence(cc.scaleTo(0, 1), cc.callFunc(popup.scalePoint5, this)));
       },
 
       open_panel_message_confirm: function (title, message, txt_btn_OK, txt_btn_Cancel, callback, callbackerror) {
