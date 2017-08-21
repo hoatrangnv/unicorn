@@ -3,7 +3,7 @@
 
     var LOADING_TAG = 21112;
 
-    var SceneMgr = uc.SceneMgr = cc.Class.extend({
+    var SceneMgr = uc.SceneManager = cc.Class.extend({
         ctor: function(){
 
         },

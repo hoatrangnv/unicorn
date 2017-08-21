@@ -59,11 +59,14 @@
     "src/Unicorn/Network/WebsocketClient.js",
     "src/Unicorn/Network/XMLHttpRequest.js",
 
+    "src/Unicorn/Singletons/AdapterManager/adapter.js",
+    "src/Unicorn/Singletons/AdapterManager/index.js",
+    "src/Unicorn/Singletons/SceneManager.js",
+
 
 
     "src/Unicorn/Components/BaseLayer.js",
     "src/Unicorn/Components/BaseScene.js",
-    "src/Unicorn/Components/SceneMgr.js",
     "src/Unicorn/Components/BaseLayerTable.js",
     "src/Unicorn/Components/Dialog.js",
     "src/Unicorn/Components/InappPurchase.js",
@@ -71,18 +74,15 @@
     "src/Unicorn/Components/Popup/codeLoading.js",
 
 
-    "src/Unicorn/GameManager/GameManager.js",
-    "src/Unicorn/GameManager/RoomItem.js",
-    "src/Unicorn/GameManager/RoomLock.js",
-    "src/Unicorn/GameManager/Res.js",
-    "src/Unicorn/GameManager/GameData.js",
-    "src/Unicorn/GameManager/GameScenePool.js",
+    "src/Unicorn/Singletons/GameManager/GameManager.js",
+    "src/Unicorn/Singletons/GameManager/RoomItem.js",
+    "src/Unicorn/Singletons/GameManager/RoomLock.js",
+    "src/Unicorn/Singletons/GameManager/Res.js",
+    "src/Unicorn/Singletons/GameManager/GameData.js",
+    "src/Unicorn/Singletons/GameManager/GameScenePool.js",
 
     "src/Unicorn/Scennes/BaseScene.js",
     "src/Unicorn/Scennes/LobbyScene.js",
-
-    "src/Unicorn/Singletons/AdapterManager/adapter.js",
-    "src/Unicorn/Singletons/AdapterManager/index.js",
 
 
     "src/Unicorn/Components/Lobby/index.js",
