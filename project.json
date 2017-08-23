@@ -59,21 +59,21 @@
     "src/Unicorn/Network/WebsocketClient.js",
     "src/Unicorn/Network/XMLHttpRequest.js",
 
+
+
+    "src/Unicorn/CoreUI/BaseLayer.js",
+    "src/Unicorn/CoreUI/BaseScene.js",
+    "src/Unicorn/CoreUI/BaseLayerTable.js",
+    "src/Unicorn/CoreUI/Dialog.js",
+    "src/Unicorn/CoreUI/InappPurchase.js",
+    "src/Unicorn/CoreUI/MiniGameBaseLayer.js",
+
     "src/Unicorn/Singletons/AdapterManager/adapter.js",
     "src/Unicorn/Singletons/AdapterManager/index.js",
-    "src/Unicorn/Singletons/SceneManager.js",
-
-
-
-    "src/Unicorn/Components/BaseLayer.js",
-    "src/Unicorn/Components/BaseScene.js",
-    "src/Unicorn/Components/BaseLayerTable.js",
-    "src/Unicorn/Components/Dialog.js",
-    "src/Unicorn/Components/InappPurchase.js",
-    "src/Unicorn/Components/MiniGameBaseLayer.js",
-    "src/Unicorn/Components/Popup/codeLoading.js",
-
-
+    "src/Unicorn/Singletons/SceneManager/SceneManager.js",
+    "src/Unicorn/Singletons/Popup/index.js",
+    "src/Unicorn/Singletons/Popup/basePopup.js",
+    "src/Unicorn/Singletons/Popup/alert.js",
     "src/Unicorn/Singletons/GameManager/GameManager.js",
     "src/Unicorn/Singletons/GameManager/RoomItem.js",
     "src/Unicorn/Singletons/GameManager/RoomLock.js",

@@ -6,7 +6,7 @@
     var popupY = null;
     var popupAppear = null;
 
-    var alert = uc.Popup.Alert = uc.Popup.BasePopup.extend({
+    var alert = uc.Popup.BasePopup = uc.BaseLayer.extend({
             ctor: function (title, message, options) {
                 this._super();
                 this.title = title || "Thông báo";

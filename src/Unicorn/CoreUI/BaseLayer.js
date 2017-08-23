@@ -7,18 +7,13 @@
             this._super();
             id && (this._id = id);
             this._layout = null;
-            this._scale = -1;
-
             this._showHideAnimate = false;
             this._bgShowHideAnimate = null;
             this._currentScaleBg = 1;
-
             this._enableBack = false;
 
-            if (this._scale < 0) {
-                this._scale = cc.director.getWinSize().width / 800;
-                this._scale = (this._scale > 1) ? 1 : this._scale;
-            }
+            this._scale = cc.director.getWinSize().width / 800;
+            this._scale = (this._scale > 1) ? 1 : this._scale;
 
             this._layerColor = new cc.LayerColor(cc.BLACK);
             this.addChild(this._layerColor);
@@ -33,7 +28,6 @@
                 }
             });
             cc.eventManager.addListener(this._keyboardEvent, this);
-
 
             this._listener = cc.EventListener.create({
                 event: cc.EventListener.TOUCH_ONE_BY_ONE,
@@ -516,7 +510,7 @@
             enableAction = enableAction === undefined ? true : enableAction;
             button.setPressedActionEnabled(enableAction);
             button.addTouchEventListener(this.onTouchEventHandler, this);
-            if(images){
+            if (images) {
                 var imageAguments = [];
                 if (images instanceof Array) {
                     imageAguments = images;
@@ -700,10 +694,10 @@
             child.setPosition(position);
             child.setSelected(isSelect);
             this.addChildAsProp(parent, child, name, (options && options.nestedProp) ? true : false);
-            if(images && images[0]){
+            if (images && images[0]) {
                 texType = (cc.spriteFrameCache.getSpriteFrame(images[0]) || texType == ccui.Widget.PLIST_TEXTURE) ? ccui.Widget.PLIST_TEXTURE : ccui.Widget.LOCAL_TEXTURE;
                 images[5] = texType;
-                child.loadTextures.apply(child,images);
+                child.loadTextures.apply(child, images);
             }
             return child;
         },
