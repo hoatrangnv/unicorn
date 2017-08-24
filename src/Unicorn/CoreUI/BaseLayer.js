@@ -9,6 +9,8 @@
             this._layout = null;
             this._showHideAnimate = false;
             this._bgShowHideAnimate = null;
+            return;
+
             this._currentScaleBg = 1;
             this._enableBack = false;
 

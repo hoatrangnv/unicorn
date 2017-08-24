@@ -2,7 +2,7 @@
 
     var mainContentLayers = ["BG_GUI", "GAME_GUI", "MINI_GAME_GUI", "POP_UP_GUI", "INFO_GUI"];
 
-    uc.BaseScene = cc.Scene.extend({
+    var BaseScene = uc.BaseScene = cc.Scene.extend({
         ctor: function () {
             this._super();
             this.addMainLayers();
@@ -32,7 +32,7 @@
 
             var mainContent = this.mainContent = new ccui.Layout();
             mainContent.setAnchorPoint(0.5, 0.5);
-            mainContent.setContentSize(cc.size(1280, 720));
+            mainContent.setContentSize(BaseScene.MAIN_LAYER_SIZE);
             mainContent.setTouchEnabled(true);
             mainContent.setCascadeOpacityEnabled(true);
             mainContent.setPosition(this.positionContent);
@@ -106,12 +106,13 @@
         }
     });
 
+    BaseScene.MAIN_LAYER_SIZE = cc.size(1280, 720);
     if (cc.sys.isNative) {
-        uc.BaseScene.SCREEN_SIZE = cc.size(1280, 720);
-        uc.BaseScene.CENTER_POSITION = uc.BaseScene.CONTENT_POSITION = cc.p(640, 360);
+        BaseScene.SCREEN_SIZE = cc.size(1280, 720);
+        BaseScene.CENTER_POSITION = BaseScene.CONTENT_POSITION = cc.p(640, 360);
     } else {
-        uc.BaseScene.SCREEN_SIZE = cc.size(1920, 1080);
-        uc.BaseScene.CENTER_POSITION = uc.BaseScene.CONTENT_POSITION = cc.p(960, 540);
+        BaseScene.SCREEN_SIZE = cc.size(1920, 1080);
+        BaseScene.CENTER_POSITION = BaseScene.CONTENT_POSITION = cc.p(960, 540);
     }
 
 }.call(this));
