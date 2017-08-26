@@ -27,6 +27,7 @@
             },
             onEnter: function () {
                 this._super();
+                return;
                 var url = "http://210.211.101.230:8081/api?c=2&nn=Tung1147&at=80e971fccd4208e4ecf8591db3d9ec6c&pf=web";
                 request(url, null, false, function (data) {
                     console.log("success data",data);
@@ -75,6 +76,10 @@
                 }
             },
             loginNormal: function () {
+                console.log(" popup.loading();");
+                popup.loading();
+                return;
+
                 var CmdReceivedLogin = uc.Network.CmdReceivedCommon.extend(
                     {
                         ctor: function (pkg) {

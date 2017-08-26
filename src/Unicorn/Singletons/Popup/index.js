@@ -8,7 +8,7 @@
 
     popupManager.open = function (template, options, openCb, closeCb) {
         var curScene = uc.SceneManager.getInstance().getRunningScene();
-        curScene.addGUI(template, BaseScene.INDEX_POP_UP_GUI, 0);
+        curScene.addGUI(template, uc.BaseScene.INDEX_POP_UP_GUI, 0);
     };
 
     popupManager.closeAllPopup = function () {
@@ -18,14 +18,18 @@
     };
 
     popupManager.alert = function (tittle, message, options) {
-        var alert = new uc.Popup.alert(tittle, message, options);
+        var alert = new uc.Popup.Alert(tittle, message, options);
         this.open(alert);
     };
 
     popupManager.loading = function () {
-        if(this.loading) return;
-        var loadingPopup = this.loading = new uc.Popup.LoadingPopup();
-        this._open(this.loadingPopup);
+        // if(this._isloading) return;
+        if(!this.loadingPopup) {
+            this.loadingPopup = new uc.Popup.LoadingPopup();
+            this.open(this.loadingPopup);
+        }else{
+            this.loadingPopup.setVisible(true);
+        }
     };
 
 }.call(this));

@@ -12,13 +12,13 @@
         onEnter: function () {
             this._super();
             this.resizeScene();
-            this.listenAdapter &&  this.listenAdapter();
+            this.listenAdapter && this.listenAdapter();
         },
 
         addMainLayers: function () {
             this.sizeSceen = uc.BaseScene.SCREEN_SIZE;
             this.positionCenter = uc.BaseScene.CENTER_POSITION;
-            this.positionContent  = uc.BaseScene.CONTENT_POSITION;
+            this.positionContent = uc.BaseScene.CONTENT_POSITION;
 
             if (cc.sys.isNative) {
                 this.imageBg = "res/Base/Lobby/GUI/mobile-lobby-bg.jpg";
@@ -36,10 +36,6 @@
             mainContent.setTouchEnabled(true);
             mainContent.setCascadeOpacityEnabled(true);
             mainContent.setPosition(this.positionContent);
-
-            // mainContent.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
-            // mainContent.setBackGroundColor(cc.color("#000000"));
-            // mainContent.setBackGroundColorOpacity(125);
 
             this.addChild(mainContent);
         },
@@ -103,6 +99,11 @@
 
         getMainContentSize: function () {
             return MainContent.getContentSize();
+        },
+
+        addGUI: function (child, index, zOrder) {
+            var layerName = mainContentLayers[index];
+            this[layerName].addChild(child, zOrder);
         }
     });
 
@@ -114,6 +115,11 @@
         BaseScene.SCREEN_SIZE = cc.size(1920, 1080);
         BaseScene.CENTER_POSITION = BaseScene.CONTENT_POSITION = cc.p(960, 540);
     }
+
+
+    mainContentLayers.forEach(function (item, index) {
+        BaseScene["INDEX_" + item] = index;
+    });
 
 }.call(this));
 

@@ -2,7 +2,7 @@
     var root = this;var GameScene = null;
     var MainContent = null;
 
-    var BaseScene = uc.BaseScene = cc.Scene.extend({
+    var BaseScene = cc.Scene.extend({
         ctor: function(){
             this._super();
             this.listGameGui = [];

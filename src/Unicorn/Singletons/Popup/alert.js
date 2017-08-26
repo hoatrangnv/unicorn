@@ -1,12 +1,7 @@
 (function () {
-    var root = this;
 
-    var popup = null;
-    var popupX = null;
-    var popupY = null;
-    var popupAppear = null;
 
-    var alert = uc.Popup.Alert = uc.Popup.BasePopup.extend({
+    var Alert = uc.Popup.Alert = uc.Popup.BasePopup.extend({
             ctor: function (title, message, options) {
                 this._super();
                 this.title = title || "Thông báo";
@@ -36,6 +31,7 @@
                 //showLoading();
             },
             onButtonRelease: function (button, id) {
+                this._super();
                 switch (id) {
                     case codeLoading.BTN_CLOSE_PANEL_ALERT:
                         this.pn_message_small.runAction(cc.scaleTo(0.2, 0));
@@ -46,6 +42,6 @@
         }
     );
 
-    alert.CLOSE = 1;
+    Alert.CLOSE = 1;
 
 }.call(this));

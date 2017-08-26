@@ -62,7 +62,6 @@
 
 
     "src/Unicorn/CoreUI/BaseLayer.js",
-    "src/Unicorn/CoreUI/BaseScene.js",
     "src/Unicorn/CoreUI/BaseLayerTable.js",
     "src/Unicorn/CoreUI/Dialog.js",
     "src/Unicorn/CoreUI/InappPurchase.js",
@@ -74,6 +73,7 @@
     "src/Unicorn/Singletons/Popup/index.js",
     "src/Unicorn/Singletons/Popup/basePopup.js",
     "src/Unicorn/Singletons/Popup/alert.js",
+    "src/Unicorn/Singletons/Popup/loading.js",
     "src/Unicorn/Singletons/GameManager/GameManager.js",
     "src/Unicorn/Singletons/GameManager/RoomItem.js",
     "src/Unicorn/Singletons/GameManager/RoomLock.js",
