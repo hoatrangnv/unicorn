@@ -28,7 +28,7 @@
             this.loadingPopup = new uc.Popup.LoadingPopup();
             this.open(this.loadingPopup);
         }else{
-            this.loadingPopup.setVisible(true);
+            this.loadingPopup.reOpen();
         }
     };
 

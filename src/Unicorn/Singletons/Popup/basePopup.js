@@ -8,12 +8,11 @@
 
             customizeGUI: function () {
                 this.setContentSize(uc.BaseScene.MAIN_LAYER_SIZE);
-                console.log("this.getContentSize()",this.getContentSize());
 
                 var _layerColor = this._layerColor = new ccui.Layout();
                 this._layerColor.setBackGroundColorType(ccui.Layout.BG_COLOR_SOLID);
                 this._layerColor.setBackGroundColor(cc.color.BLACK);
-                this._layerColor.setBackGroundColorOpacity(200);
+                this._layerColor.setBackGroundColorOpacity(150);
                 this._layerColor.setContentSize(uc.BaseScene.MAIN_LAYER_SIZE);
                 var _self = this;
 
@@ -53,19 +52,10 @@
                 }
             },
 
-            onClose: function (timeAnimation) {
+            onClose: function () {
                 console.log("onClose basePopup");
+                cc.eventManager.removeAllListeners(this._layerColor);
                 this.removeFromParent();
-
-                // timeAnimation = timeAnimation || 0.3;
-                //
-                // if (this._showHideAnimate) {
-                //     this._bgShowHideAnimate.setScale(this._currentScaleBg);
-                //     this._bgShowHideAnimate.runAction(cc.spawn(new cc.EaseBackIn(cc.scaleTo(timeAnimation, 1.2)), cc.fadeOut(0.2)));
-                //     this.runAction(cc.sequence(cc.delayTime(timeAnimation), cc.removeSelf()));
-                // } else {
-                //     this.removeFromParent();
-                // }
             },
             onExit : function () {
                 console.log("on Exit");

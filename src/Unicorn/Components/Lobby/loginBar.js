@@ -62,7 +62,7 @@
                 this._passwordTf = this.addEditBoxStructure(this.pLogin, "tf_pass_tab", cc.p(727, 39), "", "Mật khẩu", fonts.RobotoRegular.fontName, 20, cc.size(167, 41), res_Lobby + "bg_tendangnhap.png", cc.TEXT_ALIGNMENT_LEFT, 16);
                 this._passwordTf.setInputFlag(cc.EDITBOX_INPUT_FLAG_PASSWORD);
 
-                this.addButtonStructure(this.pLogin, "btn_dang_nhap_tab", ButtonActions.login, cc.p(899, 39), false, res_Lobby + "btnDangNhap.png", res_Lobby + "btnDangNhap_s.png", ccui.Widget.PLIST_TEXTURE);
+                this.buttonLogin = this.addButtonStructure(this.pLogin, "btn_dang_nhap_tab", ButtonActions.login, cc.p(899, 39), false, res_Lobby + "btnDangNhap.png", res_Lobby + "btnDangNhap_s.png", ccui.Widget.PLIST_TEXTURE);
                 this.addButtonStructure(this.pLogin, "btn_dang_ky_tab", ButtonActions.register, cc.p(1037, 39), false, res_Lobby + "btnDangKy.png", res_Lobby + "btnDangKy_s.png", ccui.Widget.PLIST_TEXTURE);
                 this.addButtonStructure(this.pLogin, "btn_quen_mk", ButtonActions.forgotPassword, cc.p(1190, 39), false, res_Lobby + "btnForgetPass.png", res_Lobby + "btnForgetPass.png", ccui.Widget.PLIST_TEXTURE);
                 this.addSpriteStructure(this.pLogin, "sp_vach", cc.p(640, -4), "vachngang.png");
@@ -76,7 +76,8 @@
                 }
             },
             loginNormal: function () {
-                console.log(" popup.loading();");
+                // console.log(" popup.loading();");
+                // this.buttonLogin.setVisible(false);
                 popup.loading();
                 return;
 

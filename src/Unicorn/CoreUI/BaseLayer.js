@@ -533,7 +533,7 @@
                 titleFontName: uc.fonts.SeagullBold.fontName,
                 titleFontSize: 30
             };
-            cc.extend(button, initTextType, options, (options && options.nestedProp) ? false : true);
+            cc.extend(button, initTextType, options);
             options && options.titleFontName && cc.sys.isNative && button.setTitleFontName("res/Font/" + options.titleFontName + ".ttf");
             options && options.titleColor && cc.sys.isNative && button.setTitleColor(options.titleColor);
             return button;
