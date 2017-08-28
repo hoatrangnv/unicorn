@@ -24,14 +24,14 @@
                     event: cc.EventListener.TOUCH_ONE_BY_ONE,
                     swallowTouches: true,
                     onTouchBegan: function (touch, event) {
-                        console.log("onTouchBegan");
+                        // console.log("onTouchBegan");
                         return true;
                     },
                     onTouchMoved: function (touch, event) {
 
                     },
                     onTouchEnded: function (touch, event) {
-                        console.log("onTouchEnded");
+                        // console.log("onTouchEnded");
                         _self.onClose();
                     }
                 });
@@ -46,14 +46,14 @@
             onButtonRelease: function (button, id) {
                 switch (id) {
                     case BasePopup.CLOSE:
-                        console.log("BasePopup.CLOSE");
+                        // console.log("BasePopup.CLOSE");
                         this.onClose();
                         break;
                 }
             },
 
             onClose: function () {
-                console.log("onClose basePopup");
+                // console.log("onClose basePopup");
                 cc.eventManager.removeAllListeners(this._layerColor);
                 this.removeFromParent();
             },

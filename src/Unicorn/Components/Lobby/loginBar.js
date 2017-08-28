@@ -76,10 +76,12 @@
                 }
             },
             loginNormal: function () {
-                // console.log(" popup.loading();");
-                // this.buttonLogin.setVisible(false);
+                // this.loginWS();
+
                 popup.loading();
-                return;
+            },
+
+            loginWS : function () {
 
                 var CmdReceivedLogin = uc.Network.CmdReceivedCommon.extend(
                     {
@@ -102,6 +104,7 @@
                 loginData.putData("caro12", "9a3d271a9906af2077264b5e3d27425c");
                 lobbyAdapter.sendMessage(loginData);
             },
+
             loginSuccess: function () {
 
                 console.log('hihi');

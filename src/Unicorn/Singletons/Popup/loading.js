@@ -1,4 +1,5 @@
 (function () {
+    var fonts = uc.fonts;
 
     uc.Popup.LoadingPopup = uc.Popup.BasePopup.extend({
             ctor: function (title, message, options) {
@@ -7,7 +8,13 @@
 
             customizeGUI: function () {
                 this._super();
-                console.log("customizeGUI")
+                console.log("customizeGUI");
+                var centerPosition = uc.BaseScene.MAIN_LAYER_CENTER;
+                this.addTextStructure(this, "loading_text", centerPosition, "Loading ...", fonts.RobotoRegular.fontName, 40);
+
+                //add cicle
+                // http://www.nonostante.io/devblog/2017-01-13-cocos-js-draw-solid-circle.html
+                // https://codepen.io/mrrocks/pen/EiplA
             },
 
             onButtonRelease: function (button, id) {
@@ -23,7 +30,7 @@
             },
 
             onClose: function () {
-                console.log("onClose loading");
+                // console.log("onClose loading");
                 this.setVisible(false);
                 this._layerColor.setTouchEnabled(false);
                 cc.eventManager.pauseTarget(this._layerColor, true);

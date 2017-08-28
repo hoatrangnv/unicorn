@@ -108,6 +108,7 @@
     });
 
     BaseScene.MAIN_LAYER_SIZE = cc.size(1280, 720);
+    BaseScene.MAIN_LAYER_CENTER = cc.p(640, 360);
     if (cc.sys.isNative) {
         BaseScene.SCREEN_SIZE = cc.size(1280, 720);
         BaseScene.CENTER_POSITION = BaseScene.CONTENT_POSITION = cc.p(640, 360);
